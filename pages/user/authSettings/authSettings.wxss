@@ -1,0 +1,8 @@
+.setting-item {
+    padding: 30rpx 40rpx;
+    border-bottom: 1rpx solid #f5fbfa;
+}
+
+.setting-item:nth-child(1) {
+    margin-top: 40rpx;
+}

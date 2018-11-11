@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText": "服务列表",
+    "usingComponents": {
+        "progress-bar": "/pages/component/progressBar/progressBar"
+    }
+}

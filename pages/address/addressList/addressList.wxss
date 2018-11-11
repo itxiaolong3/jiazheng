@@ -1,0 +1,107 @@
+.no-address {
+    background: #F5F8FA;
+    padding-top: 345rpx;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.no-address image {
+    width: 235rpx;
+    height: 235rpx;
+    margin-bottom: 55rpx;
+}
+
+.choose-address {
+    background: #F5F8FA;
+    padding-top: 234rpx;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.choose-address image {
+    width: 392rpx;
+    height: 392rpx;
+    margin-bottom: 38rpx;
+}
+
+.add-dz {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding: 10rpx 24rpx 24rpx;
+    background: #F5F8FA;
+    z-index: 999999;
+}
+
+.add {
+    width: 702rpx;
+    height: 88rpx;
+    line-height: 88rpx;
+    letter-spacing: 3rpx;
+    background: #219cfc!important;
+    border-radius: 12rpx;
+}
+
+.add.orange {
+    background: linear-gradient(to right,rgba(255,92,52,1),rgba(255,132,69,1));
+}
+
+.address-list {
+    padding: 0 24rpx;
+    background: #F5F8FA;
+    margin-bottom: 134rpx;
+}
+
+.address {
+    padding: 21rpx 30rpx 33rpx 19rpx;
+    border-radius: 20rpx;
+    margin-top: 24rpx;
+}
+
+.addr-title {
+    margin-bottom: 12rpx;
+}
+
+.addr-caozuo {
+    margin-top: 30rpx;
+}
+
+.moren-text {
+    margin-left: 9rpx;
+}
+
+.handle-view {
+    margin-left: 22rpx;
+}
+
+.handle-view image {
+    width: 29rpx;
+    height: 29rpx;
+    margin-right: 12rpx;
+}
+
+.address-label {
+    width: 60rpx;
+    height: 38rpx;
+    line-height: 38rpx;
+    border: 1rpx solid #219cfc;
+    margin-left: 20rpx;
+    display: block;
+    border-radius: 5rpx;
+}
+
+.address-left {
+    width: 8%;
+}
+
+.address-right {
+    flex: 1;
+}
+
+.addr-title-name {
+    max-width: 200rpx;
+    overflow: hidden;
+    display: block;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}

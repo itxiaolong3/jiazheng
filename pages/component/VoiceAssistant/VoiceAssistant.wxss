@@ -1,0 +1,181 @@
+@import "../../../__wuBaseWxss__/1.wxss";
+
+@import "../../../app.wxss";
+
+.loading {
+    position: absolute;
+    width: 200rpx;
+    height: 200rpx;
+    left: 255rpx;
+    top: 42rpx;
+    background: transparent;
+    z-index: -9;
+}
+
+.loading .calm {
+    display: block;
+    width: 200rpx;
+    height: 200rpx;
+    position: absolute;
+    border-radius: 50%;
+    background: #219cfc;
+    left: 0;
+    top: 0;
+    opacity: 0;
+}
+
+.loading .calm:nth-child(1) {
+    animation: loading 1.2s linear 0s infinite;
+}
+
+.loading .calm:nth-child(2) {
+    animation: loading 1.2s linear 0.2s infinite;
+}
+
+.loading .calm:nth-child(3) {
+    animation: loading 1.2s linear 0.4s infinite;
+}
+
+@-webkit-keyframes loading {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    50% {
+        transform: scale(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 0;
+    }
+}
+
+@keyframes loading {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    50% {
+        transform: scale(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 0;
+    }
+}
+
+.ai-voice {
+    width: 98rpx;
+    height: 98rpx;
+    border-radius: 50%;
+    position: fixed;
+    right: 50rpx;
+    top: 816rpx;
+    box-shadow: 0 0 12rpx 5rpx #219cfc;
+    z-index: 999;
+    justify-content: center;
+}
+
+.ai-voice-img {
+    width: 40rpx;
+    height: 60rpx;
+}
+
+.ai-content {
+    width: 710rpx;
+    height: 284rpx;
+    position: fixed;
+    left: 20rpx;
+    top: 332rpx;
+    background: rgba(20,31,60,0.86);
+    border-radius: 12rpx;
+    padding: 20rpx;
+    z-index: 999999;
+}
+
+.ai-content-voice {
+    width: 133rpx;
+    height: 87rpx;
+    position: absolute;
+    left: 23rpx;
+    top: -44rpx;
+}
+
+.ai-content-close {
+    justify-content: flex-end;
+    background: transparent;
+}
+
+.ai-close-img {
+    width: 25rpx;
+    height: 25rpx;
+    margin-right: 6rpx;
+}
+
+.ai-close-txt {
+    color: #8a8a8a;
+}
+
+.ai-words-questions {
+    background: transparent;
+    margin-top: 26rpx;
+}
+
+.ai-words-answer {
+    background: transparent;
+    margin-top: 30rpx;
+}
+
+.remind-bind {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 999999;
+    background: RGBA(0,0,0,0.4);
+    justify-content: center;
+}
+
+.remind {
+    width: 484rpx;
+    border-radius: 22rpx;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+.remind-bcg {
+    width: 484rpx;
+    height: 126rpx;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.remind-title {
+    margin-top: 26rpx;
+    margin-bottom: 107rpx;
+    background: transparent;
+    position: relative;
+    z-index: 99;
+}
+
+.remind-content {
+    padding: 0 58rpx;
+    margin-bottom: 50rpx;
+}
+
+.remind-go {
+    height: 88rpx;
+    line-height: 88rpx;
+    background: #219cfc;
+    width: 100%;
+    border-radius: 0 0 22rpx 22rpx;
+}

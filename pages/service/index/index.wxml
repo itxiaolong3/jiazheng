@@ -1,0 +1,129 @@
+<view class="loading" wx:if="{{loading}}">
+    <image mode="scaleToFill" src="http://xrs.duoguan.com/2018-10-20_5bcad06c3fe0e.jpg" wx:if="{{false}}"></image>
+</view>
+<block wx:else>
+    <!-- <view class="head flex a-item j-between {{active}}"> -->
+    <view class="head flex a-item j-between ">
+        <!-- <view class="location">
+            <text class="iconfont icon-location f16 black mr5"></text>
+            <text class="f14 black">深圳</text>
+        </view>
+        <view class="search flex a-item">
+            <text class="iconfont icon-search f16 hui"></text>
+            <input disabled bindtap="linkToTap" class="f14 hui search-input ml6" data-url="/pages/service/search/search" placeholder="搜索服务/店铺" type="text"></input>
+        </view> -->
+    </view>
+    <view class="banner">
+        <swiper autoplay="{{true}}" circular="{{true}}" class="swiper" duration="{{800}}" interval="{{4000}}">
+            <swiper-item wx:for="{{configInfo}}" wx:key="index" >
+                <image class="banner-img" mode="aspectFill" src="{{item['adimg']}}"></image>
+            </swiper-item>
+        </swiper>
+    </view>
+<view class='guide-detail'>
+    <view wx:for="{{navigate}}" wx:key="index"> 
+        <navigator url="/pages/service/serviceList/serviceList?id={{item['tid']}}">
+            <view class='guide_detail_item'>
+              <image class='logo' src="{{item['img']}}"></image>
+              <view class='navname'>{{item['name']}}</view>
+            </view>
+        </navigator>
+    </view>
+    
+  </view>
+
+    
+        <!-- <image bindtap="linkToTap" data-url="/pages/service/serviceList/serviceList?id={{item['tid']}}" mode="aspectFill" src="{{item['img']}}" wx:for="{{navigate}}" wx:key="index"></image>
+        <text>清洗保洁</text>
+        <image bindtap="linkToTap" data-url="/pages/service/platformInfo/platformInfo" mode="aspectFill" src="{{configInfo['platformCover']}}"></image>
+        <image bindtap="linkToTap" data-url="/pages/service/serviceList/serviceList?id=0" mode="aspectFill" src="{{configInfo['allServiceCover']}}"></image> -->
+   
+    <view class="content">
+        <view catchtap="linkToTap" class="order" data-url="/pages/order/orderDetail/orderDetail?id={{item['id']}}" wx:for="{{orderList}}" wx:key="index">
+            <view class="title flex a-item j-between">
+                <text class="f18 black fw2">{{item.docTitle}}</text>
+                <text class="f16 fw {{item['color']}}">{{item['tip']}}<text class="iconfont icon-fanhui fw f15"></text>
+                </text>
+            </view>
+            <view class="br"></view>
+            <view class="mer" wx:if="{{item.businessInfo}}">
+                <view class="f17 mer-name">{{item.businessInfo.title}}</view>
+                <view class="eval f14 black flex a-item">综合评分:
+            <view class="sky-blue ml6">{{item.businessInfo.rate}}</view>
+                    <view class="ml12">已服务{{item.businessInfo.order_count}}单</view>
+                </view>
+            </view>
+            <view class="mer" wx:else>
+        正在为您匹配商家
+      </view>
+        </view>
+        <view class="order box" wx:if="{{false}}">
+            <view class="title flex j-between a-item">
+                <text class="f18 black fw">最近浏览店铺</text>
+                <text class="f11 hui">距离3.2KM</text>
+            </view>
+            <view class="br"></view>
+            <view bindtap="onNavigateTap" class="mer flex a-item" data-url="/pages/discover/">
+                <image class="no-order-img" mode="aspectFill" src="http://xrs.duoguan.com/2018-10-15_5bc3ed0429b6a.png"></image>
+                <view class="no-order-mer">
+                    <view class="f17 mer-name">郑州天天家政（郑东新区店）</view>
+                    <view class="eval f14 black flex a-item">综合评分:
+            <view class="sky-blue ml6">5.0</view>
+                        <view class="ml12">已服务3245单</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <compoent-message></compoent-message>
+    <view class="container">
+        <image bindtap="linkToTap" class="ranking-img" data-type="switchTab" data-url="/pages/discover/discoverIndex/discoverIndex" mode="aspectFill" src="http://xrs.duoguan.com/2018-10-23_5bcec14e5a6c7.png"></image>
+        <view class="container-rank">
+            <view bindtap="linkToTap" class="rank-list" data-url="/pages/business/businessIndex/businessIndex?bid={{item['id']}}" wx:for="{{businessInfo}}" wx:key="index">
+                <view class="image">
+                    <image mode="aspectFill" src="{{item['headimg']}}"></image>
+                    <view class="image-txt white tc">限时推广</view>
+                </view>
+                <view class="mer-width">
+                    <view class="mer-name f15 black letter fw ">{{item['title']}}</view>
+                    <view class="mer-con f12 hui ">{{item['description']?item['description']:'附近家政商家'}} </view>
+                    <view class="mer-dis f11 black flex j-between">
+                        <view>综合评分:
+              <text class="f13 sky-blue mr6 fw">{{item['score']}}</text> 已服务:<text>{{item['order_count']}}</text>单</view>
+                        <view class="hui">距离{{item['distance']}}km</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="dixian f12 tc">
+        <text wx:if="{{!businessHasMore}}">我是有底线的！！！</text>
+    </view>
+    <view catchtouchmove="true" class="quan flex a-item" wx:if="{{false}}">
+        <view class="quan-con">
+            <view class="quan-head flex">
+                <image src="http://xrs.duoguan.com/2018-10-16_5bc548eccd4fa.png"></image>
+            </view>
+            <view class="quan-content">
+                <scroll-view class="quan-scroll" scrollY="true">
+                    <view class="quan-item" wx:for="{{6}}" wx:key="quan">
+                        <image class="quan-item-bcg" mode="aspectFill" src="http://xrs.duoguan.com/2018-10-15_5bc43a4d8606f.png"></image>
+                        <text class="quan-item-name f22 white fw">5.00元代金券</text>
+                        <text class="quan-item-time f10">优惠时间：10.04~10.07</text>
+                        <view class="quan-item-label flex a-item">
+                            <text class="quan-item-txt f12 white fw" wx:for="{{1}}" wx:key="{{lei}}">搬家运输</text>
+                        </view>
+                    </view>
+                </scroll-view>
+            </view>
+            <view class="quan-bottom">
+                <button class="quan-bottom-button tc f16 black fw">
+          立即领取
+        </button>
+                <view class="quan-close tc">
+                    <text class="iconfont icon-22 f24 white"></text>
+                </view>
+            </view>
+        </view>
+    </view>
+</block>

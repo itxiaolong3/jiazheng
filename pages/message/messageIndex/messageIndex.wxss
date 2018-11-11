@@ -1,0 +1,104 @@
+.mes {
+    margin-top: 19rpx;
+    padding: 0;
+}
+
+.mes-list {
+    padding: 16rpx 30rpx;
+    position: relative;
+    display: flex;
+}
+
+.mes-list-img {
+    width: 82rpx;
+    height: 82rpx;
+    border-radius: 50%;
+}
+
+.mes-num {
+    width: 31rpx;
+    height: 31rpx;
+    line-height: 31rpx;
+    position: absolute;
+    left: 90rpx;
+    top: 17rpx;
+    color: #fff;
+    background: #F8504A;
+    border-radius: 50%;
+}
+
+.mes-content {
+    margin-left: 29rpx;
+}
+
+.content-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.top-name {
+    display: flex;
+    align-items: center;
+}
+
+.offical {
+    border: 1px solid #069DFF;
+    border-radius: 15rpx;
+    color: #069DFF;
+    padding: 5rpx 13rpx 7rpx;
+    line-height: 100%;
+    margin-left: 20rpx;
+}
+
+.time {
+    color: #989797;
+    margin-left: 89rpx;
+}
+
+.times {
+    color: #989797;
+    margin-left: 240rpx;
+}
+
+.content-bottom {
+    margin-top: 5rpx;
+    color: #989797;
+    width: 480rpx;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.mes-other {
+    padding: 16rpx 30rpx;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.mes-other-img {
+    width: 82rpx;
+    height: 82rpx;
+    border-radius: 50%;
+}
+
+.other-title {
+    color: #26221c;
+    margin-left: 29rpx;
+}
+
+.time-b {
+    color: #989797;
+    margin-left: 238rpx;
+}
+
+.mes-br {
+    width: 702rpx;
+    height: 1px;
+    border-radius: 1px;
+    margin: 6rpx auto 0;
+    background: #dfdfdf;
+    transform: scaleY(0.5);
+    transform-origin: bottom center;
+}

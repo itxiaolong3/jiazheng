@@ -1,0 +1,27 @@
+page {
+    background: #ffffff;
+}
+
+.detail {
+    padding: 0 24rpx;
+}
+
+.detail-head {
+    height: 132rpx;
+    border-bottom: 1rpx solid #DFDFDF;
+}
+
+.detail-img {
+    width: 67rpx;
+    height: 67rpx;
+    border-radius: 50%;
+    margin-right: 34rpx;
+}
+
+.detail-title {
+    margin-top: 10rpx;
+}
+
+.detail-con {
+    padding-top: 18rpx;
+}

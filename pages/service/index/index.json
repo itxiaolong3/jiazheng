@@ -1,0 +1,5 @@
+{
+    "usingComponents": {
+        "compoent-message": "/pages/component/messagePush/messagePush"
+    }
+}

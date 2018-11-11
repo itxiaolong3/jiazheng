@@ -1,0 +1,27 @@
+<view class="questions box-shadow" wx:if="{{false}}">
+    <view bindtap="showAnswer" class="questions-item" wx:for="{{questions}}" wx:key="index">
+        <view class="qusetions-item-title flex a-item j-between">
+            <text class="f15 black fw">{{qitem.title}}</text>
+            <text class="iconfont f12 icon-54 gray" wx:if="{{qitem.answer}}"></text>
+            <text class="iconfont f12 icon-53 gray" wx:if="{{qitem.answer==false}}"></text>
+        </view>
+        <view class="questions-item-content f13 hui" wx:if="{{qitem.answer}}">
+            <view>{{qitem.content}}</view>
+        </view>
+    </view>
+</view>
+<form bindsubmit="submitForm" reportSubmit="true">
+    <view class="suggest">
+        <view class="suggest-title f15 black fw">建议与反馈</view>
+        <view class="suggest-content">
+            <textarea class="f14 hui suggest-content-text" name="remark" placeholder="您宝贵的建议，是我们前行的动力" placeholderStyle="color:#999999;"></textarea>
+        </view>
+    </view>
+    <view class="phone">
+        <view class="f15 black fw mb6">请输入手机号</view>
+        <input class="f14 black" maxlength="11" name="mobile" placeholder="输入您的手机号，便与客服与您联系" type="number"></input>
+    </view>
+    <view class="foot">
+        <button class="submit f18 white fw tc" formType="submit" hoverClass="none" type="primary">提交建议</button>
+    </view>
+</form>

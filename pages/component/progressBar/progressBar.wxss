@@ -1,0 +1,71 @@
+@import "../../../__wuBaseWxss__/1.wxss";
+
+@import "../../../app.wxss";
+
+.head {
+    height: 78rpx;
+    background: #ffffff;
+    padding: 0 24rpx;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1rpx solid #e7e7e7;
+}
+
+.title {
+    height: 78rpx;
+    background: transparent;
+    width: 702rpx;
+}
+
+.title-status {
+    color: #adadad;
+}
+
+.title-status.active {
+    color: #009bff;
+}
+
+.pro {
+    width: 645rpx;
+    height: 3rpx;
+    position: absolute;
+    bottom: 8rpx;
+    left: 52rpx;
+}
+
+.pro-status {
+    width: 25%;
+    height: 4rpx;
+    position: relative;
+    background: #adadad;
+}
+
+.pro-status.active {
+    background: #009bff;
+}
+
+.big-circle {
+    width: 13rpx;
+    height: 13rpx;
+    border-radius: 7rpx;
+    background: #009bff;
+    position: absolute;
+    left: 0;
+    top: -3rpx;
+    display: none;
+}
+
+.last-b-cir {
+    width: 13rpx;
+    height: 13rpx;
+    border-radius: 7rpx;
+    background: #009bff;
+    position: absolute;
+    right: 0;
+    top: -3rpx;
+    display: none;
+}
+
+.pro-status .active {
+    display: block;
+}

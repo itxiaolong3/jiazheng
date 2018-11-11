@@ -1,0 +1,13 @@
+<view class="prompt" wx:if="{{showBindTip}}">
+    <view class="prompt-con">
+        <image mode="aspectFit" src="http://xrs.duoguan.com/2018-10-15_5bc3f5fbedea5.png"></image>
+        <view class="f17 black fw">当前账户未绑定手机号,将会影响</view>
+        <view class="f17 black fw">对您的服务,请尽快前往绑定手机号</view>
+        <view class="flex j-around prompt-con-foot">
+            <view bindtap="linkToTap" class="prompt-con-btn white f15 fw">去绑定</view>
+        </view>
+        <view bindtap="hiddenTip" class="prompt-close f15" wx:if="{{showClose}}">
+            <text class="iconfont icon-22"></text>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,85 @@
+<view class="discover-head">
+    <image class="discover-head-near" mode="aspectFill" src="http://xrs.duoguan.com/2018-10-15_5bc3f04fadc78.png"></image>
+    <view class="service-discover flex a-item j-between">
+        <view class="flex a-item">
+            <view class="service-discover-img flex a-item" wx:if="{{false}}">
+                <image mode="aspectFill" src="{{serviceInfo.cover}}"></image>
+            </view>
+            <view>
+                <view class="f21 white fw service-discover-label mt12">#{{serviceInfo.title}}#</view>
+                <view class="f15 white flex a-item" wx:if="{{false}}">服务预估价：
+          <text class="fw">199元</text>起
+          <text class="service-discover-wen tc">?</text>
+                </view>
+            </view>
+        </view>
+        <button class="f17 white service-discover-order flex a-item" wx:if="{{false}}">下单</button>
+    </view>
+</view>
+<block wx:if="{{discoverList.length>0}}">
+    <view class="discover-list">
+        <view catchtap="linkToTap" class="discover-item" data-url="/pages/discover/evaluateDetail/evaluateDetail?orderid={{item.orderid}}" wx:for="{{discoverList}}" wx:key="index">
+            <view class="discover-item-title flex j-between a-item">
+                <view class="flex">
+                    <image src="{{item.anonymous=='0'?item.avatar:'https://www.ixiaochengxu.cc/temp_pic/people_fill.png'}}"></image>
+                    <text class="f16 black fw">{{item.anonymous=='0'&&item.nickName.length!=0?item.nickName:'匿名用户'}}</text>
+                </view>
+                <view class="flex a-item">
+                    <text class="iconfont icon-location f15 hui mr4"></text>
+                    <text class="f13 fw hui" wx:if="{{item.distance<=10}}">{{item.distance}}km</text>
+                    <text class="f13 fw hui" wx:else>10km+</text>
+                </view>
+            </view>
+            <view class="discover-item-con f15 black">
+                <text class="sky-blue mr6 fw">#{{item.docTitle}}#</text>{{item.comment}}
+      </view>
+            <view class="discover-item-pic flex" wx:if="{{item.image.length>0}}">
+                <view catchtap="previewImage" class="discover-item-img" data-index="{{index}}" data-index2="{{index2}}" wx:if="{{index2<=2}}" wx:for="{{item.image}}" wx:for-index="index2" wx:for-item="item2" wx:key="index2">
+                    <view class="discover-item-img-kuai">
+                        <image mode="aspectFill" src="{{item2}}"></image>
+                        <text class="discover-item-img-more f30 white tc fw" wx:if="{{index2==2&&item.image.length>3}}">+{{item.image.length-3}}</text>
+                    </view>
+                </view>
+            </view>
+            <view class="discover-item-server">
+                <view class="f13 black fw">服务报价:
+          <text class="discover-item-server-price mr12">¥{{item.business_price}}元</text>
+                    <block wx:if="{{item.service_price!=undefined&&item.service_price!=''&&item.service_price!='0.00'}}">
+            实收价格:
+            <text class="discover-item-server-price">¥{{item.service_price}}元</text>
+                    </block>
+                </view>
+                <view class="f13 black flex a-item fw">服务评价:
+          <image mode="aspectFill" src="/images/find/fullstar.png" wx:for="{{item.star}}" wx:key="index2"></image>
+                    <image mode="aspectFill" src="/images/find/nonestar.png" wx:for="{{5-item.star}}" wx:key="index2"></image>
+                </view>
+            </view>
+            <view class="discover-item-hf f14 black" wx:if="{{false}}">
+                <text class="sky-blue">商家回复：</text>很高心为您服务
+      </view>
+            <view catchtap="linkToTap" class="discover-item-mer flex a-item j-between" data-url="/pages/business/businessIndex/businessIndex?bid={{item.businessId}}&isshare=1">
+                <view class="flex a-item">
+                    <image class="discover-item-mer-img" mode="aspectFill" src="{{item.companyAvatar}}"></image>
+                    <view>
+                        <view class="discover-item-mer-name f15 black">{{item.companytitle}}</view>
+                        <view class="f11 black">
+                            <text class="discover-item-mer-text">综合评分:<text class="f13 sky-blue fw">{{item.rate}}</text>
+                            </text>
+                            <text class="discover-item-mer-text">已服务:<text>{{item.countCompanyOrder}}</text>单</text>
+                        </view>
+                    </view>
+                </view>
+                <view class="discover-item-mer-go f11 white tc">进店看看</view>
+            </view>
+        </view>
+    </view>
+    <view class="view-status flex a-item" wx:if="{{false}}">
+        <image class="view-status-wlyc" mode="aspectFill" src="http://xrs.duoguan.com/2018-10-15_5bc3ed9114227.png"></image>
+        <text class="f15 hui fw">网络异常,请刷新重试~</text>
+    </view>
+    <view bindtap="linkToTap" class="go-index f18 white fw tc" data-type="switchTab" data-url="/pages/service/index/index" wx:if="{{false}}">进入首页</view>
+</block>
+<view class="no-discover flex a-item" wx:else>
+    <image mode="aspectFill" src="http://xrs.duoguan.com/2018-10-20_5bcad6497253b.png"></image>
+    <text class="f16 hui mt12">{{isLoading?'加载中...':'您的附近暂无发现~'}}</text>
+</view>

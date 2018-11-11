@@ -1,0 +1,102 @@
+page {
+    background: #ffffff;
+}
+
+.flexC {
+    flex-direction: column;
+}
+
+.flexC>.sub {
+    flex: 1;
+    overflow: hidden;
+}
+
+.pageView {
+    height: 100vh;
+}
+
+.scroll-left {
+    width: 23%;
+    height: 100%;
+    background: #f5f8fa;
+}
+
+.server-label {
+    padding: 36rpx 0;
+    background: #f5f8fa;
+}
+
+.server-label.active {
+    background: #ffffff;
+}
+
+.server-label.active text {
+    display: block;
+    width: 100%;
+    position: relative;
+}
+
+.server-label.active text::before {
+    display: block;
+    content: "";
+    width: 6rpx;
+    height: 42rpx;
+    background: #219CFC;
+    border-radius: 0 4rpx 4rpx 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.scroll-right {
+    width: 75%;
+    height: 100%;
+}
+
+.list {
+    margin-bottom: 40rpx;
+    padding: 0 10rpx;
+    width: 98%;
+    margin: a auto;
+}
+
+.list-view:nth-child(1) {
+    margin-top: 36rpx;
+}
+
+.list-view {
+    margin-bottom: 36rpx;
+}
+
+.list-name {
+    margin-bottom: 0;
+    padding-bottom: 20rpx;
+}
+
+.list-item {
+    padding: 15rpx 0 20rpx 30rpx;
+    border-radius: 10rpx;
+    box-shadow: 0 0 16rpx 0 rgba(0,0,0,0.08);
+}
+
+.list-item image {
+    width: 73rpx;
+    height: 98rpx;
+}
+
+.ser-con {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 460rpx;
+}
+
+.list-item-view {
+    margin-left: 27rpx;
+}
+
+.logo image{
+    width: 50rpx;
+    height: 50rpx;
+    padding-top: 20rpx;
+}

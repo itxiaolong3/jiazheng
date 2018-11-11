@@ -1,0 +1,7 @@
+{
+    "enablePullDownRefresh": true,
+    "usingComponents": {
+        "user-auth": "/pages/component/userAuth/userAuth",
+        "bind-tel": "/pages/component/bindTip/bindTip"
+    }
+}

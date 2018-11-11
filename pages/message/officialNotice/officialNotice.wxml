@@ -1,0 +1,16 @@
+<block wx:for="{{noticeList}}" wx:key="index">
+    <view catchtap="linkToTap" class="notice-bottom flex" data-url="/pages/message/noticeDetail/noticeDetail?id={{item.id}}">
+        <view class="notice-info">
+            <image mode="aspectFit" src="http://xrs.duoguan.com/2018-10-22_5bcd48ae1ff04.png"></image>
+        </view>
+        <view class="notice-content">
+            <view class="f17 notice-content-tit black fw">{{item.title}}</view>
+            <view class="f11 notice-content-time hui">{{item.create_time}}</view>
+            <view class="notice-text">
+                <text class="f12 notice-text-content black" space="nbsp">{{item.brief_title}}
+      </text>
+            </view>
+        </view>
+    </view>
+    <view class="notice-br"></view>
+</block>

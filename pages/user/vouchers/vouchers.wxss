@@ -1,0 +1,69 @@
+.choose-voucher {
+    margin-top: 20rpx;
+    height: 77rpx;
+    padding: 0 30rpx 0 40rpx;
+    margin-bottom: 6rpx;
+}
+
+.choose-voucher-checked {
+    height: 77rpx;
+}
+
+.choose-voucher image {
+    width: 40rpx;
+    height: 40rpx;
+}
+
+.vouchers {
+    background: transparent;
+    padding: 0 24rpx;
+}
+
+.vouchers-item {
+    margin-top: 18rpx;
+    border-radius: 20rpx;
+    border: 1rpx solid #e5e5e5;
+    padding: 40rpx 30rpx 25rpx 40rpx;
+    position: relative;
+}
+
+.vouchers-item-price {
+    color: #FF5C34;
+}
+
+.vouchers-item-time {
+    margin-top: 16rpx;
+}
+
+.vouchers-item-use {
+    color: #FF5C34;
+    flex-direction: column;
+}
+
+.vouchers-item-button {
+    width: 120rpx;
+    height: 52rpx;
+    line-height: 52rpx;
+    background: linear-gradient(to bottom,rgba(255,92,52,1),rgba(253,122,81,1));
+    border-radius: 26rpx;
+    box-shadow: 0 0 10rpx 2rpx rgba(255,93,53,0.3);
+}
+
+.vouchers-item-button.guoqi {
+    background: #e5e5e5;
+    box-shadow: 0 0 0 0 rgba(255,255,255,1);
+}
+
+.vouchers-item-prompt {
+    margin-top: 8rpx;
+}
+
+.vouchers-item-no-choose {
+    width: 100%;
+    height: 100%;
+    border-radius: 20rpx;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: rgba(250,250,250,0.5);
+}

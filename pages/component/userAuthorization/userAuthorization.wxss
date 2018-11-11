@@ -1,0 +1,39 @@
+@import "../../../app.wxss";
+
+.authorization {
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.6);
+    position: fixed;
+    top: 0;
+    left: 0;
+    justify-content: center;
+    z-index: 999999;
+}
+
+.authorization-con {
+    width: 570rpx;
+    height: 600rpx;
+    border-radius: 20rpx;
+    flex-direction: column;
+}
+
+.authorization-con image {
+    width: 262rpx;
+    height: 232rpx;
+    margin-top: 10%;
+}
+
+.authorization-txt {
+    margin: 10% auto 0;
+    padding: 0 5%;
+}
+
+.authorization button {
+    width: 90%;
+    height: 75rpx;
+    line-height: 75rpx;
+    border-radius: 12rpx;
+    margin: 5% auto 0;
+    background: #219cfc;
+}

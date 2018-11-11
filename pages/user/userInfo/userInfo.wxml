@@ -1,0 +1,50 @@
+<view class="information">
+    <view class="head-portrait shadow flex a-item j-between">
+        <view class="f14 spacing black">头像</view>
+        <view class="info flex a-item">
+            <image mode="aspectFill" src="http://xrs.duoguan.com/2018-10-15_5bc3ecd035cda.png"></image>
+            <view class="f18 black">
+                <text class="iconfont icon-fanhui fw"></text>
+            </view>
+        </view>
+    </view>
+    <view class="modify shadow">
+        <view class="name flex a-item j-between modify-list">
+            <view class="f14 spacing black">昵称</view>
+            <input class="tr f13 black" type="text" value="德莱文"></input>
+        </view>
+        <view class="br"></view>
+        <view class="sex flex a-item j-between modify-list">
+            <view class="f14 spacing black">性别</view>
+            <picker bindchange="bindPickerChange" range="{{array}}" value="{{index}}">
+                <view class="picker f13 black flex a-item">
+          {{array[index]}}
+          <view class="f18 black picker-view">
+                        <text class="iconfont icon-fanhui fw"></text>
+                    </view>
+                </view>
+            </picker>
+        </view>
+        <view class="br"></view>
+        <view class="loaction  flex a-item j-between modify-list">
+            <view class="f14 spacing black">地区</view>
+            <picker bindchange="bindRegionChange" customItem="{{customItem}}" mode="region" value="{{region}}">
+                <view class="picker flex a-item">
+          {{region[0]}} {{region[1]}} {{region[2]}}
+          <view class="f18 black picker-view">
+                        <text class="iconfont icon-fanhui fw"></text>
+                    </view>
+                </view>
+            </picker>
+        </view>
+        <view class="br"></view>
+        <view class="phone flex a-item j-between modify-list">
+            <view class="f14 spacing black phone-view">电话号码</view>
+            <view bindtap="linkToTap" class="tr f13 black phone-view" data-url="/pages/user/bindTel/bindTel">
+                <text class="telphone-number">15188359799</text>
+                <text class="iconfont icon-fanhui fw  black"></text>
+            </view>
+        </view>
+    </view>
+</view>
+<button class="userinfo-button f18 white">确认修改</button>

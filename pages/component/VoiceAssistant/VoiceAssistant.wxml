@@ -1,0 +1,25 @@
+<view class="remind-bind flex a-item" wx:if="{{false}}">
+    <view class="remind flex a-item">
+        <view class="f17 white remind-title">提醒</view>
+        <view class="f15 black tc remind-content">未绑定手机号或未选择默认地址，暂无法快速下单</view>
+        <view bindtap="onNavigateTap" class="f17 white remind-go tc" data-url="/pages/user/bind_phone/bind_phone">去绑定</view>
+        <image class="remind-bcg" mode="aspectFill" src="http://xrs.duoguan.com/2018-10-15_5bc3f5a17970b.png"></image>
+    </view>
+</view>
+<view bindtap="showVoice" class="ai-voice flex a-item" wx:if="{{true}}">
+    <image class="ai-voice-img" mode="aspectFit" src="http://xrs.duoguan.com/2018-10-15_5bc3f5b96d473.png"></image>
+</view>
+<view class="ai-content" wx:if="{{true}}">
+    <image class="ai-content-voice" mode="aspectFit" src="http://xrs.duoguan.com/2018-10-15_5bc3f5d604e0a.png"></image>
+    <view bindtap="showVoice" class="ai-content-close flex a-item">
+        <image class="ai-close-img" mode="aspectFit" src="/images/index/close-ai.png"></image>
+        <text class="ai-close-txt f11">关闭</text>
+    </view>
+    <view class="ai-words-questions f14 white tc">您对保洁阿姨有什么交代？</view>
+    <view class="ai-words-answer f22 white tc">如：“专业的保洁阿姨”</view>
+    <view class="loading">
+        <view class="calm"></view>
+        <view class="calm"></view>
+        <view class="calm"></view>
+    </view>
+</view>

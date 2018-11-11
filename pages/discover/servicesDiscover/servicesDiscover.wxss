@@ -1,0 +1,234 @@
+.discover-head {
+    width: 100%;
+    height: 405rpx;
+    position: relative;
+    background: linear-gradient(0deg,rgba(65,195,254,1),rgba(33,156,252,1));
+}
+
+.discover-head view {
+    background: transparent;
+}
+
+.discover-head-bcg {
+    width: 100%;
+    height: 405rpx;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -99;
+}
+
+.discover-head-near {
+    width: 267rpx;
+    height: 203rpx;
+    position: absolute;
+    right: 12rpx;
+    top: 0;
+    z-index: -9;
+}
+
+.service-discover {
+    padding: 10px 24rpx;
+}
+
+.service-discover-img {
+    width: 140rpx;
+    height: 140rpx;
+    border-radius: 50%;
+    background: #ffffff!important;
+    justify-content: center;
+    margin-right: 18rpx;
+}
+
+.service-discover-img image {
+    width: 140rpx;
+    height: 140rpx;
+    border-radius: 50%;
+}
+
+.service-discover-label {
+    margin-bottom: 20rpx;
+}
+
+.service-discover-wen {
+    display: inline-block;
+    margin-left: 12rpx;
+    width: 34rpx;
+    height: 34rpx;
+    border-radius: 50%;
+    border: 1rpx solid #ffffff;
+    line-height: 34rpx;
+}
+
+.service-discover-order {
+    width: 156rpx;
+    height: 56rpx;
+    border: 1rpx solid #ffffff;
+    border-radius: 28rpx;
+    justify-content: center;
+    background: transparent;
+}
+
+.discover-list {
+    background: transparent;
+    padding: 0 24rpx;
+    position: relative;
+    margin-top: -265rpx;
+    z-index: 999;
+}
+
+.discover-item {
+    padding: 22rpx 24rpx 27rpx;
+    border-radius: 24rpx;
+    margin-bottom: 24rpx;
+    box-shadow: 0 0 20rpx 1rpx rgba(0,0,0,0.1);
+}
+
+.discover-item-title {
+    margin-bottom: 16rpx;
+}
+
+.discover-item-title image {
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 50%;
+    margin-right: 24rpx;
+}
+
+.discover-item-con {
+    margin-bottom: 24rpx;
+}
+
+.discover-item-pic {
+    width: 100%;
+    margin-bottom: 34rpx;
+}
+
+.discover-item-img {
+    width: 33.3%;
+    height: 210rpx;
+}
+
+.discover-item-img image {
+    width: 210rpx;
+    height: 210rpx;
+    border-radius: 6rpx;
+}
+
+.discover-item-img-kuai {
+    position: relative;
+    width: 210rpx;
+    height: 210rpx;
+    margin: 0 auto;
+}
+
+.discover-item-img-more {
+    width: 210rpx;
+    height: 210rpx;
+    border-radius: 6rpx;
+    line-height: 210rpx;
+    background: rgba(0,0,0,0.6);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.discover-item-server {
+    margin-bottom: 24rpx;
+}
+
+.discover-item-server-price {
+    color: #FF5252;
+    margin-left: 10rpx;
+}
+
+.discover-item-server image {
+    width: 28rpx;
+    height: 28rpx;
+    margin: 0 3rpx;
+}
+
+.discover-item-server image:nth-child(1) {
+    margin-left: 10rpx;
+}
+
+.discover-item-hf {
+    width: 100%;
+    padding: 18rpx 20rpx;
+    background: #F3F3F3;
+    border-radius: 12rpx;
+    margin-bottom: 24rpx;
+    position: relative;
+}
+
+.discover-item-hf::before {
+    display: block;
+    content: "";
+    border-bottom: 28rpx solid #f3f3f3;
+    border-top: 28rpx solid transparent;
+    border-left: 26rpx solid transparent;
+    border-right: 26rpx solid transparent;
+    position: absolute;
+    top: -52rpx;
+    left: 34rpx;
+}
+
+.discover-item-mer {
+    padding: 9rpx 7rpx;
+    box-shadow: 2rpx 2rpx 13rpx rgba(0,0,0,0.09);
+    border-radius: 14rpx;
+}
+
+.discover-item-mer-img {
+    width: 86rpx;
+    height: 86rpx;
+    border-radius: 10rpx;
+    margin-right: 15rpx;
+}
+
+.discover-item-mer-name {
+    max-width: 430rpx;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.discover-item-mer-text {
+    margin-right: 23rpx;
+}
+
+.discover-item-mer-go {
+    width: 134rpx;
+    height: 45rpx;
+    border-radius: 23rpx;
+    line-height: 45rpx;
+    background: linear-gradient(to bottom,rgba(82,215,255,1),rgba(33,156,252,1));
+}
+
+.go-index {
+    width: 702rpx;
+    height: 84rpx;
+    border-radius: 42rpx;
+    background: linear-gradient(90deg,rgba(6,152,254,1),rgba(37,209,255,1));
+    letter-spacing: 3rpx;
+    position: fixed;
+    left: 24rpx;
+    bottom: 24rpx;
+    z-index: 999;
+    line-height: 84rpx;
+}
+
+.no-discover {
+    width: 100%;
+    flex-direction: column;
+    background: transparent;
+    margin-top: -200rpx;
+    position: relative;
+    background: #f5f8fa;
+    padding-top: 150rpx;
+}
+
+.no-discover image {
+    width: 295rpx;
+    height: 335rpx;
+}

@@ -1,0 +1,130 @@
+<form bindsubmit="submitForm" reportSubmit="true">
+    <view class="cancel">
+        <view class="content">
+            <view class=" black f16 fw mt6" wx:if="{{operationType=='cancel'}}">请选择取消原因</view>
+            <view class=" black f16 fw mt6" wx:if="{{operationType=='change'}}">请选择换商家原因</view>
+            <view class=" black f16 fw mt6" wx:if="{{operationType=='complaint'}}">请选择投诉的原因</view>
+            <view class="con">
+                <radio-group bindchange="onChanged" wx:if="{{operationType=='cancel'&&(orderInfo.sendstatus==0||orderInfo.sendstatus==2)}}">
+                    <label class="cancel-content flex a-item j-between">
+                        <text class="f15 gray">没有商家接单</text>
+                        <radio color="#219cfc" value="1"></radio>
+                    </label>
+                    <label class="cancel-content flex a-item j-between">
+                        <text class="f15 gray">预约信息填写有误</text>
+                        <radio color="#219cfc" value="2"></radio>
+                    </label>
+                    <label class="cancel-content flex a-item j-between">
+                        <text class="f15 gray">发现更好的选择</text>
+                        <radio color="#219cfc" value="3"></radio>
+                    </label>
+                    <label class="cancel-content flex a-item j-between">
+                        <text class="f15 gray">个人计划有变</text>
+                        <radio color="#219cfc" value="4"></radio>
+                    </label>
+                    <label class="cancel-content flex a-item j-between">
+                        <text class="f15 gray">其他</text>
+                        <radio color="#219cfc" value="0"></radio>
+                    </label>
+                </radio-group>
+                <radio-group bindchange="onChanged" wx:if="{{operationType=='cancel'&&orderInfo.sendstatus==1}}">
+                    <label class="cancel-content flex a-item j-between">
+                        <text class="f15 gray">商家没有及时联系我</text>
+                        <radio color="#219cfc" value="1"></radio>
+                    </label>
+                    <label class="cancel-content flex a-item j-between">
+                        <text class="f15 gray">商家报价太贵</text>
+                        <radio color="#219cfc" value="2"></radio>
+                    </label>
+                    <label class="cancel-content flex a-item j-between">
+                        <text class="f15 gray">商家无法提供服务</text>
+                        <radio color="#219cfc" value="3"></radio>
+                    </label>
+                    <label class="cancel-content flex a-item j-between">
+                        <text class="f15 gray">个人计划有变</text>
+                        <radio color="#219cfc" value="4"></radio>
+                    </label>
+                    <label class="cancel-content flex a-item j-between">
+                        <text class="f15 gray">其他</text>
+                        <radio color="#219cfc" value="0"></radio>
+                    </label>
+                </radio-group>
+                <radio-group bindchange="onChanged" wx:if="{{operationType=='cancel'&&orderInfo.sendstatus==3}}">
+                    <label class="cancel-content flex a-item j-between">
+                        <text class="f15 gray">商家逾期，未能提供服务</text>
+                        <radio color="#219cfc" value="1"></radio>
+                    </label>
+                    <label class="cancel-content flex a-item j-between">
+                        <text class="f15 gray">商家要求我取消</text>
+                        <radio color="#219cfc" value="2"></radio>
+                    </label>
+                    <label class="cancel-content flex a-item j-between">
+                        <text class="f15 gray">报价太贵，发现更好的</text>
+                        <radio color="#219cfc" value="3"></radio>
+                    </label>
+                    <label class="cancel-content flex a-item j-between">
+                        <text class="f15 gray">个人计划有变</text>
+                        <radio color="#219cfc" value="4"></radio>
+                    </label>
+                    <label class="cancel-content flex a-item j-between">
+                        <text class="f15 gray">其他</text>
+                        <radio color="#219cfc" value="0"></radio>
+                    </label>
+                </radio-group>
+                <radio-group bindchange="onChanged" wx:if="{{operationType=='change'}}">
+                    <label class="cancel-content flex a-item j-between">
+                        <text class="f15 gray">商家没有及时联系我</text>
+                        <radio color="#219cfc" value="1"></radio>
+                    </label>
+                    <label class="cancel-content flex a-item j-between">
+                        <text class="f15 gray">商家报价太贵</text>
+                        <radio color="#219cfc" value="2"></radio>
+                    </label>
+                    <label class="cancel-content flex a-item j-between">
+                        <text class="f15 gray">商家无法提供服务</text>
+                        <radio color="#219cfc" value="3"></radio>
+                    </label>
+                    <label class="cancel-content flex a-item j-between">
+                        <text class="f15 gray">个人计划有变</text>
+                        <radio color="#219cfc" value="4"></radio>
+                    </label>
+                    <label class="cancel-content flex a-item j-between">
+                        <text class="f15 gray">其他</text>
+                        <radio color="#219cfc" value="0"></radio>
+                    </label>
+                </radio-group>
+                <radio-group bindchange="onChanged" wx:if="{{operationType=='complaint'}}">
+                    <label class="cancel-content flex a-item j-between">
+                        <text class="f15 gray">没有服务，订单已完成</text>
+                        <radio color="#219cfc" value="1"></radio>
+                    </label>
+                    <label class="cancel-content flex a-item j-between">
+                        <text class="f15 gray">申请退款，退款未到</text>
+                        <radio color="#219cfc" value="2"></radio>
+                    </label>
+                    <label class="cancel-content flex a-item j-between">
+                        <text class="f15 gray">商家骚扰</text>
+                        <radio color="#219cfc" value="3"></radio>
+                    </label>
+                    <label class="cancel-content flex a-item j-between">
+                        <text class="f15 gray">商家再次收取预约订金</text>
+                        <radio color="#219cfc" value="4"></radio>
+                    </label>
+                    <label class="cancel-content flex a-item j-between">
+                        <text class="f15 gray">其他</text>
+                        <radio color="#219cfc" value="0"></radio>
+                    </label>
+                </radio-group>
+            </view>
+        </view>
+        <view class="yuanyin">
+            <textarea class="gray f15" name="remark" placeholder="输入取消订单理由,提高通过率" wx:if="{{operationType=='cancel'}}"></textarea>
+            <textarea class="gray f15" name="remark" placeholder="输入换商家的理由" wx:if="{{operationType=='change'}}"></textarea>
+            <textarea class="gray f15" name="remark" placeholder="输入投诉的理由" wx:if="{{operationType=='complaint'}}"></textarea>
+        </view>
+        <view class="red f14 tc foot" wx:if="{{operationType=='cancel'}}">订单取消后，预付款将在三个工作日内返还支付账户</view>
+        <view class="red f14 tc foot" wx:if="{{operationType=='change'}}">>换商家后，您的订单将重新分配商家，请耐心等待！</view>
+        <view class="red f14 tc foot" wx:if="{{operationType=='complaint'}}">确认投诉后，平台客服会尽快与您联系，请耐心等待！</view>
+    </view>
+    <button class="submit f16 white letter tc fw" formType="submit">确认提交</button>
+</form>

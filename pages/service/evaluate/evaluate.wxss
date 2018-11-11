@@ -1,0 +1,246 @@
+.container {
+    padding: 0 24rpx;
+    background: #f5f8fa;
+}
+
+.br20 {
+    border-radius: 20rpx;
+}
+
+.mt9 {
+    margin-top: 18rpx;
+}
+
+.mer-name {
+    padding: 17rpx 0 24rpx 19rpx;
+    margin-top: 28rpx;
+    display: flex;
+}
+
+.mer-img {
+    width: 112rpx;
+    height: 112rpx;
+    border-radius: 56rpx;
+    margin-right: 53rpx;
+}
+
+.text-star:nth-child(1) {
+    margin-left: 6rpx;
+}
+
+.name {
+    max-width: 400rpx;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.mer-eval {
+    padding: 23rpx 38rpx 20rpx 19rpx;
+    margin-top: 28rpx;
+}
+
+.eval-detail {
+    padding-left: 16rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.detail {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10rpx;
+}
+
+.score {
+    display: flex;
+}
+
+.user-score {
+    padding: 0 10rpx;
+}
+
+.num {
+    width: 100rpx;
+}
+
+.num-text {
+    display: none;
+}
+
+.num-text.active {
+    display: block;
+}
+
+.mer-label {
+    padding: 24rpx 20rpx;
+    margin-top: 28rpx;
+    margin-bottom: 20rpx;
+}
+
+.label {
+    padding: 0 15rpx;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.label-content {
+    padding: 0 49rpx;
+    height: 60rpx;
+    border-radius: 30rpx;
+    border: 1rpx solid #DADADA;
+    line-height: 60rpx;
+    margin: 0 10rpx 30rpx;
+}
+
+.label-content.active {
+    border-color: #ffffff;
+    background: linear-gradient(to right,#22a7fc,#24adfc,#2abbfc);
+    color: #ffffff;
+}
+
+.eval-con {
+    padding: 20rpx 15rpx;
+    border: 1rpx solid #dadada;
+    margin-top: 10rpx;
+    width: 100%;
+    height: 236rpx;
+}
+
+.add-photo {
+    padding: 0 15rpx;
+    flex-wrap: wrap;
+}
+
+.user-img {
+    margin-top: 28rpx;
+    margin-right: 25rpx;
+    position: relative;
+    border-radius: 14rpx;
+    justify-content: center;
+    width: 195rpx;
+    height: 195rpx;
+    flex-direction: column;
+    z-index: 99999;
+}
+
+.add-photo .box {
+    z-index: 99;
+    margin-top: 28rpx;
+    margin-right: 25rpx;
+    position: relative;
+    border-radius: 14rpx;
+    justify-content: center;
+    width: 195rpx;
+    height: 195rpx;
+    flex-direction: column;
+}
+
+.user-img:nth-child(3n) {
+    margin-right: 0;
+}
+
+.user-photo {
+    width: 195rpx;
+    height: 195rpx;
+    border-radius: 14rpx;
+}
+
+.photo {
+    width: 96rpx;
+    height: 96rpx;
+}
+
+.close {
+    width: 40rpx;
+    height: 40rpx;
+    position: absolute;
+    right: -12rpx;
+    top: -12rpx;
+}
+
+.anony {
+    margin-top: 20rpx;
+}
+
+.anony-view {
+    width: 30rpx;
+    height: 30rpx;
+    border-radius: 15rpx;
+    position: relative;
+    overflow: hidden;
+}
+
+.no-checked {
+    width: 30rpx;
+    height: 30rpx;
+}
+
+.checked {
+    width: 78rpx;
+    height: 78rpx;
+    position: absolute;
+    top: -24rpx;
+    left: -24rpx;
+}
+
+.anony-text {
+    color: #909090;
+    margin-left: 7rpx;
+}
+
+.submit {
+    padding: 20rpx 24rpx;
+    background: #f5f8fa;
+}
+
+.button {
+    height: 94rpx;
+    line-height: 94rpx;
+    width: 100%;
+    background: #219cfc!important;
+    border-radius: 12rpx;
+}
+
+.meng {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    background: transparent;
+}
+
+.mer-price {
+    margin-top: 28rpx;
+    padding: 24rpx 20rpx;
+}
+
+.mer-price-con {
+    padding: 0 20rpx;
+}
+
+.mer-price-left {
+    display: block;
+    width: 40%;
+}
+
+.mer-price-right {
+    flex: 1;
+    justify-content: flex-end;
+}
+
+.image-info {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 24rpx;
+    background: rgba(0,0,0,0.5);
+    color: #fff;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}

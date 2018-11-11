@@ -1,0 +1,28 @@
+<view class="title flex a-item">
+    <view class="title-xian"></view>
+    <text class="f23 fw sky-blue letter">欢迎使用附近家政</text>
+</view>
+<form bindsubmit="submitForm" reportSubmit="{{true}}">
+    <view class="login">
+        <view class="yzm flex j-between a-item">
+            <view class="yzm-left phone {{telActive?'active':''}} flex a-item">
+                <text class="yzm-num f18 black iconfont icon-shouji fw"></text>
+                <text class="xian"></text>
+                <input bindblur="onBlur" bindfocus="onFocus" bindinput="getTel" class="black f16 " id="0" maxlength="11" name="phone" placeholder="请输入手机号码" placeholderStyle="color:#C7C7CE;" type="number"></input>
+            </view>
+            <button bindtap="getCode" class="yzm-right f13">{{codeText}}</button>
+        </view>
+        <view class="yzm flex a-item">
+            <view class="yzm-left ma {{codeActive?'active':''}} flex a-item">
+                <text class="yzm-num f18 black iconfont icon-suo fw"></text>
+                <text class="xian"></text>
+                <input bindblur="onBlur" bindfocus="onFocus" class="black f16 " id="1" name="code" placeholder="请输入验证码" placeholderStyle="color:#C7C7CE;" type="number"></input>
+            </view>
+        </view>
+        <button class="submit tc f16 white" formType="submit">
+            <text wx:if="{{change==0}}">绑定</text>
+            <text wx:else>更改</text>手机号</button>
+        <view class="f12 hui bind-bottom tc">未注册的手机号登录时将自动注册，且代表您已同意<text bindtap="linkToTap" data-url="/pages/service/protocol/protocol">用户协议</text>
+        </view>
+    </view>
+</form>

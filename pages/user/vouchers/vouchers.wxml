@@ -1,0 +1,46 @@
+<view class="choose-voucher flex a-item j-between" wx:if="{{false}}">
+    <text class="f15 black">不使用红包</text>
+    <view class="choose-voucher-checked flex a-item">
+        <image mode="aspectFill" src="/images/integral/no-choose.png" wx:if="{{choose==false}}"></image>
+        <image mode="aspectFill" src="/images/integral/choose.png" wx:if="{{choose==true}}"></image>
+    </view>
+</view>
+<view class="vouchers">
+    <view class="vouchers-item">
+        <view class="vouchers-item-top flex a-item j-between">
+            <view class="vouchers-item-price">
+                <text class="f15 mr6 fw1">¥</text>
+                <text class="f30 fw">5</text>
+            </view>
+            <view class="vouchers-item-name">
+                <view class="f18 black fw">搬家拉货代金券</view>
+                <view class="f10 hui vouchers-item-time">2018-10-20到期</view>
+            </view>
+            <view class="vouchers-item-use flex a-item">
+                <view class="f11">剩3日</view>
+                <button class="vouchers-item-button f13 white fw1 tc" wx:if="{{false}}">去使用</button>
+                <button class="vouchers-item-button f13 white fw1 tc guoqi">已过期</button>
+            </view>
+        </view>
+        <view class="f10 hui vouchers-item-prompt">仅限：搬家拉货服务</view>
+        <view class="vouchers-item-no-choose" wx:if="{{false}}"></view>
+    </view>
+    <view class="vouchers-item">
+        <view class="vouchers-item-top flex a-item j-between">
+            <view class="vouchers-item-price">
+                <text class="f15 mr6 fw1">¥</text>
+                <text class="f30 fw">5</text>
+            </view>
+            <view class="vouchers-item-name">
+                <view class="f18 black fw">搬家拉货代金券</view>
+                <view class="f10 hui vouchers-item-time">2018-10-20到期</view>
+            </view>
+            <view class="vouchers-item-use flex a-item">
+                <view class="f11">剩3日</view>
+                <button class="vouchers-item-button f13 white fw1 tc">去使用</button>
+            </view>
+        </view>
+        <view class="f10 hui vouchers-item-prompt">仅限：搬家拉货服务</view>
+        <view class="vouchers-item-no-choose" wx:if="{{true}}"></view>
+    </view>
+</view>

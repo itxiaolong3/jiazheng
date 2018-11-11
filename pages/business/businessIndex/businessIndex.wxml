@@ -1,0 +1,145 @@
+<view catchtap="onPriviewImage" class="head" data-imageType="0" data-index="0">
+    <image class="head-bcg" mode="aspectFill" src="{{businessInfo.businesshead?businessInfo.businesshead:'http://xrs.duoguan.com/2018-10-24_5bd026f9126cc.png'}}"></image>
+    <view class="head-info flex a-item j-between">
+        <view class="head-info-img-view">
+            <image class="head-info-img" mode="aspectFill" src="{{businessInfo.headimg}}"></image>
+        </view>
+    </view>
+    <view class="head-info-name f19 white fw letter">{{businessInfo.companytitle}}</view>
+    <view class="head-info-num f12 white fw">
+        <text class="num1">综合评分:<text class="num2 f14">{{businessInfo.rate}}</text>
+        </text>
+        <text class="num1">已服务:<text class="num2 f14">{{businessInfo.order_count}}</text>单</text>
+    </view>
+    <view class="head-info-bz flex">
+        <view class="bz-list flex a-item bz-list1" wx:if="{{businessInfo.is_auth==2}}">
+            <image mode="aspectFit" src="/images/find/rengz.png"></image>
+            <text class="f11 white">认证商家</text>
+        </view>
+        <view class="bz-list flex a-item bz-list2" wx:if="{{rate>=4}}">
+            <image mode="aspectFit" src="/images/find/beian.png"></image>
+            <text class="f11 white">专业高效</text>
+        </view>
+        <view class="bz-list flex a-item bz-list3" wx:if="{{rate>=4}}">
+            <image mode="aspectFit" src="/images/find/tui.png"></image>
+            <text class="f11 white">优质服务</text>
+        </view>
+    </view>
+</view>
+<button class="head-info-button f13 white" openType="share">分享</button>
+<view class="content">
+    <view class="content-head flex a-item j-around">
+        <view bindtap="changeNavigationBar" class="f17 black fw content-head-title {{item.active}}" data-index="{{item.subscript}}" wx:if="{{item.show}}" wx:for="{{navigationBar}}" wx:key="index">{{item.title}}
+        <text class="f13" wx:if="{{item.hasSubmenu}}">{{commentTips[0].count}}</text>
+        </view>
+    </view>
+    <view class="server" wx:if="{{navigationBar[0].active=='active'}}">
+        <view class="server-list" wx:for="{{businessInfo.businessServer}}" wx:key="index">
+            <view class="server-list-title f16 fw black">{{item.title}}</view>
+            <view class="server-list-con flex">
+                <view catchtap="linkToTap" class="server-item flex a-item" data-url="/pages/service/serviceDetail/serviceDetail?businessId={{businessId}}&docId={{item2.id}}&isShare=1" wx:for="{{item.sub}}" wx:for-index="index2" wx:for-item="item2" wx:key="index2">
+                    <image class="server-item-img" mode="aspectFit" src="{{item2.cover}}"></image>
+                    <text class="f13 black mt6">{{item2.title}}</text>
+                </view>
+            </view>
+        </view>
+        <view catchtap="linkToTap" class="search flex j-between a-item" data-url="/pages/service/serviceList/serviceList">
+            <view class="search-left flex a-item">
+                <image class="search-img" mode="aspectFit" src="/images/find/search.png"></image>
+                <text class="f13 black ml6">没有找到需要的，戳我查看更多服务吧</text>
+            </view>
+            <image class="search-right" mode="aspectFit" src="/images/find/more.png"></image>
+        </view>
+    </view>
+    <view class="eval" wx:if="{{navigationBar[1].active=='active'}}">
+        <view class="eval-head flex a-item">
+            <view class="sky-blue eval-head-num ">{{businessInfo.rate}}<text class="f20 fw">分</text>
+            </view>
+            <view>
+                <view wx:if="{{false}}">
+                    <text class="sky-blue iconfont icon-star f17" wx:for="{{businessInfo.rate}}" wx:key="cs"></text>
+                    <text class="hui iconfont icon-star f17" wx:for="{{5-businessInfo.rate}}" wx:key="cs"></text>
+                </view>
+                <view class="f13 gray">共{{commentTips[0].count}}条评价</view>
+            </view>
+        </view>
+        <view class="eval-label flex">
+            <view bindtap="onCatchTip" class="eval-label-item f13 black {{item.active}}" data-index="{{index}}" wx:if="{{index==0||index!=0&&item.count>0}}" wx:for="{{commentTips}}" wx:key="index">{{item.title}}({{item.count}})</view>
+        </view>
+        <block wx:if="{{commentList.length>0}}">
+            <view class="my-eval" wx:for="{{commentList}}" wx:key="index">
+                <view class="discover-item">
+                    <view class="discover-item-title flex j-between a-item">
+                        <view class="flex">
+                            <image src="{{item.anonymous=='0'&&item.avatar!=''?item.avatar:'https://www.ixiaochengxu.cc/temp_pic/people_fill.png'}}"></image>
+                            <text class="f16 black fw">{{item.anonymous=='0'&&item.nickName.length!=0?item.nickName:'匿名用户'}}</text>
+                        </view>
+                        <view class="f11 hui discover-item-time">
+            {{item.createtime}}
+          </view>
+                    </view>
+                    <view class="discover-item-con f15 black">
+                        <text catchtap="linkToTap" class="sky-blue mr6 fw" data-url="/pages/discover/servicesDiscover/servicesDiscover?mainDocId={{item.docInfo.maindoc_id}}&businessId={{businessId}}">#{{item.docInfo.title}}#</text>{{item.comment}}
+        </view>
+                    <view class="discover-item-pic flex" wx:if="{{item.image.length>0}}">
+                        <view class="discover-item-img" wx:if="{{index2<=2}}" wx:for="{{item.image}}" wx:for-index="index2" wx:for-item="item2" wx:key="index2">
+                            <view catchtap="onPriviewImage" class="discover-item-img-kuai" data-commentIndex="{{index}}" data-imageType="1" data-index="{{index2}}">
+                                <image mode="aspectFill" src="{{item2}}"></image>
+                                <text class="discover-item-img-more f30 white tc fw" wx:if="{{index2==2}}">+{{item.image.length-3}}</text>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="discover-item-server">
+                        <view class="f13 black fw">服务报价:
+            <text class="discover-item-server-price mr12">¥{{item.business_price}}元</text>
+                            <block wx:if="{{item.service_price!=undefined&&item.service_price!=''&&item.service_price!='0.00'}}">
+              实收价格:
+              <text class="discover-item-server-price">¥{{item.service_price}}元</text>
+                            </block>
+                        </view>
+                        <view class="f13 black flex a-item fw">服务评价:
+            <image mode="aspectFill" src="/images/find/fullstar.png" wx:for="{{item.star}}" wx:key="index"></image>
+                            <image mode="aspectFill" src="/images/find/nonestar.png" wx:for="{{5-item.star}}" wx:key="index"></image>
+                        </view>
+                    </view>
+                    <view class="discover-item-hf f14 black" wx:if="{{false}}">
+                        <text class="sky-blue">商家回复：</text>很高心为您服务
+        </view>
+                </view>
+            </view>
+        </block>
+        <view class="f14 hui tc no-eval" wx:else>{{isloading?'加载中...':'该商家暂无评价~'}}</view>
+    </view>
+    <view class="activity" wx:if="{{navigationBar[2].active=='active'}}">
+        <view class="act-title f16 black fw">活动中心</view>
+        <view class="act-con">
+            <image class="act-img" mode="aspectFill" src="/images/find/act1.png"></image>
+        </view>
+        <view class="act-con">
+            <image class="act-img" mode="aspectFill" src="/images/find/act2.png"></image>
+        </view>
+    </view>
+    <view class="merchant" wx:if="{{navigationBar[3].active=='active'}}">
+        <view class="merchant-item">
+            <view class="merchant-item-title f16 black fw">商家介绍</view>
+            <view class="merchant-item-con black f13">{{businessInfo.description.length==0?'无':businessInfo.description}}</view>
+        </view>
+        <view class="merchant-item">
+            <view class="merchant-item-title f16 black fw">商家地址</view>
+            <view class="merchant-item-con black f13">{{businessInfo.blameloaction}}{{businessInfo.blameadress}}</view>
+        </view>
+        <view class="merchant-item" wx:if="{{businessInfo.businessImg.length>0}}">
+            <view class="merchant-item-title f16 black fw">商家照片</view>
+            <view class="merchant-item-con flex">
+                <image catchtap="onPriviewImage" class="merchant-item-img" data-imageType="2" data-index="{{index}}" mode="aspectFill" src="{{item}}" wx:for="{{businessInfo.businessImg}}" wx:key="index"></image>
+                <image class="merchant-item-img" mode="aspectFill" src="http://xrs.duoguan.com/2018-10-15_5bc3f1e87499b.png" wx:if="{{false}}"></image>
+            </view>
+        </view>
+        <view class="merchant-item" wx:if="{{businessInfo.company!='3'}}">
+            <view class="merchant-item-title f16 black fw">营业资质</view>
+            <view class="merchant-item-con flex">
+                <image catchtap="onPriviewImage" class="merchant-item-img" data-imageType="3" data-index="0" mode="aspectFill" src="{{businessInfo.businessphoto}}"></image>
+            </view>
+        </view>
+    </view>
+</view>

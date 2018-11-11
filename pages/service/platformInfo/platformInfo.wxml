@@ -1,0 +1,8 @@
+<import src="../../../wxParse/wxParse.wxml"></import>
+<view class="content">
+    <view class="content-list bgwhite">
+        <view class="body mt15">
+            <template is="wxParse" data="{{wxParseData:content.nodes}}"></template>
+        </view>
+    </view>
+</view>

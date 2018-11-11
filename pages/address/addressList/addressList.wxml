@@ -1,0 +1,47 @@
+<view class="choose-address flex a-item" wx:if="{{noData}}">
+    <image mode="aspectFill" src="http://xrs.duoguan.com/2018-10-16_5bc53ce67eb17.png"></image>
+    <text class="f14 hui letter">暂无地址～</text>
+</view>
+<view class="address-list">
+    <view catchtap="backPage" class="address box flex a-item" id="{{item['id']}}" wx:for="{{addressInfo}}" wx:key="index">
+        <view class="address-left" wx:if="{{false}}">
+            <text class="iconfont icon-xuanze1 f21 hui"></text>
+        </view>
+        <view class="address-right">
+            <view class="addr-title flex a-item">
+                <text class="black f19 letter fw addr-title-name">{{item['name']}}</text>
+                <text class="black f16 fw ml6 mr6">{{item['gender']==1?'先生':'女士'}}</text>
+                <text class="black f19 letter fw">{{item['mobile']}}</text>
+                <text class="address-label f11 sky-blue tc" wx:if="{{item['label']==1}}">家里</text>
+                <text class="address-label f11 sky-blue tc" wx:if="{{item['label']==2}}">公司</text>
+                <text class="address-label f11 sky-blue tc" wx:if="{{item['label']==3}}">学校</text>
+                <text class="address-label f11 sky-blue tc" wx:if="{{item['label']==4}}">住处</text>
+                <text class="address-label f11 sky-blue tc" wx:if="{{item['label']==5}}">其他</text>
+            </view>
+            <view class="addr-detail  black letter f13">{{item['all_address']}}</view>
+            <view class="flex a-item j-between addr-caozuo" wx:if="{{true}}">
+                <view class="flex a-item">
+                    <block wx:if="{{item['is_default']==1}}">
+                        <text class="iconfont icon-xuanze f16 sky-blue"></text>
+                        <text class="f13 black moren-text">默认地址</text>
+                    </block>
+                </view>
+                <view class="handle flex a-item">
+                    <view catchtap="linkToTap" class="handle-view flex a-item" data-url="/pages/address/addressEdit/addressEdit?id={{item['id']}}">
+                        <text class="iconfont icon-bianji f14 mr4 black"></text>
+                        <text class="f13 black">编辑</text>
+                    </view>
+                    <view catchtap="deleteAddress" class="handle-view flex a-item" id="{{item['id']}}">
+                        <text class="iconfont icon-xiazai14 f14 mr4 black"></text>
+                        <text class="f13 black">删除</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="add-dz">
+    <view catchtap="linkToTap" class="add f16 white tc fw" data-url="/pages/address/addressEdit/addressEdit">
+    添加新地址
+  </view>
+</view>

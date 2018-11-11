@@ -1,0 +1,24 @@
+<view bindtap="outMes" class="head">
+    <view class="title flex a-item j-between">
+        <text class="f15 fw {{activeNode>=1?'active':''}} title-status">下单</text>
+        <text class="f15 fw {{activeNode>=2?'active':''}} title-status">匹配</text>
+        <text class="f15 fw {{activeNode>=3?'active':''}} title-status">议价</text>
+        <text class="f15 fw {{activeNode>=4?'active':''}} title-status">上门</text>
+        <text class="f15 fw {{activeNode>=5?'active':''}} title-status">评价</text>
+    </view>
+    <view class="pro flex">
+        <view class="pro-status {{activeNode>=2?'active':''}}">
+            <text class="big-circle {{activeNode==1?'active':''}}"></text>
+        </view>
+        <view class="pro-status {{activeNode>=3?'active':''}}">
+            <text class="big-circle {{activeNode==2?'active':''}}"></text>
+        </view>
+        <view class="pro-status {{activeNode>=4?'active':''}}">
+            <text class="big-circle {{activeNode==3?'active':''}}"></text>
+        </view>
+        <view class="pro-status {{activeNode>=5?'active':''}}">
+            <text class="big-circle {{activeNode==4?'active':''}}"></text>
+            <text class="last-b-cir {{activeNode==5?'active':''}}"></text>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,63 @@
+.ranking {
+    padding: 0 24rpx;
+    margin-top: 28rpx;
+    background: #F5F8FA;
+    margin-bottom: 28rpx;
+}
+
+.container {
+    border-radius: 10rpx;
+}
+
+.ranking-img {
+    width: 702rpx;
+    border-radius: 10rpx 10rpx 0 0;
+    height: 217rpx;
+}
+
+.container-rank {
+    width: 702rpx;
+    margin: 0 auto;
+    border-radius: 10rpx;
+}
+
+.rank-list {
+    padding: 18rpx 32rpx 20rpx 12rpx;
+    display: flex;
+    border-bottom: 1rpx solid #ececec;
+}
+
+.rank-list:nth-last-of-type(1) {
+    border: none;
+    border-radius: 0 0 10rpx 10rpx;
+}
+
+.image {
+    width: 148rpx;
+    height: 148rpx;
+    border-radius: 10rpx;
+    margin-right: 34rpx;
+}
+
+.image image {
+    width: 148rpx;
+    height: 148rpx;
+    border-radius: 10rpx;
+}
+
+.mer-name,.mer-con {
+    margin-bottom: 8rpx;
+    max-width: 480rpx;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.mer-width {
+    width: 100%;
+}
+
+.mer-dis {
+    align-items: flex-end;
+    width: 100%;
+}

@@ -1,0 +1,132 @@
+.head {
+    position: relative;
+    height: 297rpx;
+}
+
+.head-bcg {
+    width: 750rpx;
+    height: 297rpx;
+}
+
+.head-info {
+    width: 123rpx;
+    height: 123rpx;
+    border-radius: 50%;
+    position: absolute;
+    top: 58rpx;
+    left: 24rpx;
+}
+
+.head-name {
+    position: absolute;
+    left: 167rpx;
+    top: 81rpx;
+    background: transparent;
+}
+
+.head-phone {
+    position: absolute;
+    left: 167rpx;
+    top: 136rpx;
+    background: transparent;
+}
+
+.order {
+    width: 702rpx;
+    height: 212rpx;
+    border-radius: 20rpx;
+    margin: -58rpx auto 0;
+    position: relative;
+    z-index: 999;
+    padding: 28rpx 18rpx 0;
+    box-shadow: 6rpx 0rpx 27rpx rgba(0,0,0,0.1);
+}
+
+.order-title {
+    padding: 0 14rpx 0 18rpx;
+}
+
+.all-order {
+    color: #494949;
+}
+
+.iconfont {
+    font-size: 24rpx;
+    color: #494949;
+}
+
+.order-list {
+    margin-top: 10rpx;
+}
+
+.list-img {
+    width: 80rpx;
+    height: 80rpx;
+}
+
+.order-list image {
+    width: 40rpx;
+    height: 40rpx;
+    margin-top: 20rpx;
+}
+
+.list-one {
+    margin-left: 59rpx;
+    margin-right: 155rpx;
+}
+
+.list-two {
+    margin-right: 160rpx;
+}
+
+.list-one,.list-two,.list-three {
+    position: relative;
+}
+
+.list-num {
+    position: absolute;
+    border-radius: 50%;
+    color: #fff;
+    background: #FF605D;
+    width: 30rpx;
+    height: 30rpx;
+    line-height: 30rpx;
+    right: 5rpx;
+    top: 6rpx;
+}
+
+.order-list .list-order-status {
+    margin-top: -10rpx;
+}
+
+.user-list {
+    padding: 0 24rpx;
+    margin-top: 28rpx;
+    background: #f5f8fa;
+}
+
+.con {
+    border-radius: 20rpx;
+}
+
+.user-list-content {
+    padding: 34rpx 34rpx 34rpx 17rpx;
+    border-bottom: 1rpx solid #f5f8fa;
+}
+
+.user-list-content:nth-child(1) {
+    border-radius: 20rpx 20rpx 0 0;
+}
+
+.user-list-content:nth-last-child(1) {
+    border-radius: 0 0 20rpx 20rpx;
+}
+
+.user-list-content:nth-last-child(1) {
+    border: none;
+}
+
+.user-list-content image {
+    width: 12rpx;
+    height: 22rpx;
+}

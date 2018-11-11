@@ -1,0 +1,51 @@
+<form bindsubmit="submitForm" reportSubmit="true">
+    <view class="alter-list">
+        <view class="alter-item">
+            <view class="top flex a-item j-between">
+                <view class="top-l">
+                    <view class="f15 black fw">联系人：</view>
+                    <input bindblur="inputBlur" class="f18 black fw" id="name" name="name" placeholder="请输入联系人姓名" placeholderStyle="color:#cccccc;" type="text" value="{{addressData['name']}}"></input>
+                    <view catchtap="selectGenderLabel" class="alter-label flex">
+                        <button class="f11 {{gender==1?'active':''}}" id="1">先生</button>
+                        <button class="f11 {{gender==2?'active':''}}" id="2">女士</button>
+                    </view>
+                </view>
+            </view>
+            <view class="bottom mb12">
+                <view class="f15 black fw">联系人电话：</view>
+                <input bindblur="inputBlur" class="f18 black fw" id="mobile" maxlength="11" name="mobile" placeholder="请输入联系人电话" placeholderStyle="color:#cccccc;" type="number" value="{{addressData['mobile']}}"></input>
+            </view>
+            <view class="top flex a-item j-between">
+                <view class="top-l">
+                    <view class="f15 black fw">服务地址：</view>
+                    <view class="f18 black fw address-data">{{addressData['address']}}<text class="address-data-placeholder fw f18" wx:if="{{addressData['address']==null}}">请选择地址</text>
+                    </view>
+                </view>
+                <view bindtap="chooseLocation" class="top-r">
+                    <image class="location" mode="aspectFill" src="/images/user/choose-location.png"></image>
+                    <view class="f11 black">选择位置</view>
+                </view>
+            </view>
+            <view catchtap="selectAddressLabel" class="alter-label flex alter-label-bottom">
+                <button class="f11 {{label==1?'active':''}}" id="1">家里</button>
+                <button class="f11 {{label==2?'active':''}}" id="2">公司</button>
+                <button class="f11 {{label==3?'active':''}}" id="3">学校</button>
+                <button class="f11 {{label==4?'active':''}}" id="4">住处</button>
+                <button class="f11 {{label==5?'active':''}}" id="5">其他</button>
+            </view>
+            <view class="bottom">
+                <view class="f15 black fw">详情地址（门牌号）：</view>
+                <input bindblur="inputBlur" class="f18 black fw" id="detail_info" name="detail_info" placeholder="请输入详情地址" placeholderStyle="color:#cccccc;" type="text" value="{{addressData['detail_info']}}"></input>
+            </view>
+            <view class="set-default flex a-item j-between">
+                <text class="f15 black fw">设为默认地址</text>
+                <switch bindchange="setDefaultAddress" checked="{{is_default==1?true:false}}" color="#219cfc" type="switch"></switch>
+            </view>
+        </view>
+    </view>
+    <view class="add-dz">
+        <button class="add f16 white tc fw" formType="submit">
+      保存地址
+    </button>
+    </view>
+</form>

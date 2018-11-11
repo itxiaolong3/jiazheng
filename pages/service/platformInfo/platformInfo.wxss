@@ -1,0 +1,15 @@
+@import "../../../wxParse/wxParse.wxss";
+
+.content-list {
+    box-shadow: 0 4rpx 4rpx #ddd;
+    padding: 0 30rpx;
+}
+
+.content-list .subtitle {
+    padding: 30rpx 0;
+    font-weight: 600;
+}
+
+.content-list .price {
+    padding: 30rpx;
+}

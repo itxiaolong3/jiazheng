@@ -1,0 +1,63 @@
+<block wx:if="{{evaluateList.length>0}}">
+    <view bindtap="linkToTap" class="my-eval" data-url="/pages/discover/evaluateDetail/evaluateDetail?orderid={{item.orderid}}" wx:for="{{evaluateList}}" wx:key="index">
+        <view class="discover-item">
+            <view class="discover-item-title flex j-between a-item">
+                <view class="flex">
+                    <image src="{{item.userInfo.avatar}}"></image>
+                    <text class="f16 black fw">{{item.userInfo.nick_name}}</text>
+                </view>
+                <view class="f11 hui discover-item-time">
+          {{item.createtime}}
+        </view>
+            </view>
+            <view class="discover-item-con f15 black">
+                <text class="sky-blue mr6">#{{item.docInfo.title}}#</text>{{item.comment}}
+      </view>
+            <view class="discover-item-pic flex" wx:if="{{item.image.length>0}}">
+                <view catchtap="previewImage" class="discover-item-img" data-index="{{index}}" data-index2="{{index2}}" wx:if="{{index2<3}}" wx:for="{{item.image}}" wx:for-index="index2" wx:for-item="item2" wx:key="index2">
+                    <view class="discover-item-img-kuai">
+                        <image mode="aspectFill" src="{{item2}}"></image>
+                        <text class="discover-item-img-more f30 white tc fw" wx:if="{{index2==2}}">+{{item.image.length-3}}</text>
+                    </view>
+                </view>
+            </view>
+            <view class="discover-item-server">
+                <view class="f13 black fw">服务报价:
+          <text class="discover-item-server-price">¥{{item.business_price}}元</text>
+                    <block wx:if="{{item.service_price!=undefined&&item.service_price!=''&&item.service_price!='0.00'}}">
+            实收价格:
+            <text class="discover-item-server-price">¥{{item.service_price}}元</text>
+                    </block>
+                </view>
+                <view class="f13 black flex a-item fw">服务评价:
+          <image mode="aspectFill" src="/images/find/fullstar.png" wx:for="{{item.star}}" wx:key="index2"></image>
+                    <image mode="aspectFill" src="/images/find/nonestar.png" wx:for="{{5-item.star}}" wx:key="index2"></image>
+                </view>
+            </view>
+            <view class="discover-item-hf f14 black" wx:if="{{false}}">
+                <text class="sky-blue">商家回复：</text>很高心为您服务
+      </view>
+            <view class="discover-item-delete flex">
+                <button catchtap="deleteEvaluate" class="f11 hui" data-index="{{item.index}}" data-orderid="{{item.orderid}}">删除评价</button>
+            </view>
+            <view catchtap="linkToTap" class="discover-item-mer flex a-item j-between" data-url="/pages/business/businessIndex/businessIndex?bid={{item.businessid}}&isshare=1">
+                <view class="flex a-item">
+                    <image class="discover-item-mer-img" mode="aspectFill" src="{{item.businessInfo.headimg}}"></image>
+                    <view>
+                        <view class="discover-item-mer-name f15 black">{{item.businessInfo.title}}</view>
+                        <view class="f11 black">
+                            <text class="discover-item-mer-text">综合评分:<text class="f13 sky-blue">{{item.businessInfo.rate}}</text>
+                            </text>
+                            <text class="discover-item-mer-text">已服务:<text class="f13">{{item.businessInfo.order_count}}</text>单</text>
+                        </view>
+                    </view>
+                </view>
+                <view class="discover-item-mer-go f11 white tc">进店看看</view>
+            </view>
+        </view>
+    </view>
+</block>
+<view class="flex a-item no-evaluate" wx:else>
+    <image mode="aspectFill" src="http://xrs.duoguan.com/2018-10-23_5bce94b714ac8.png"></image>
+    <text class="f16 hui">{{isLoading==true?'加载中...':'您还没有评价过哟！'}}</text>
+</view>

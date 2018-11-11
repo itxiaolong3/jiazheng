@@ -1,0 +1,54 @@
+<view class="detail-head box-shadow" wx:if="{{discoverInfo.image!=undefined&&discoverInfo.image.length>0}}">
+    <swiper bindchange="onChange">
+        <swiper-item catchtap="previewImage" data-index="{{index}}" wx:for="{{discoverInfo.image}}" wx:key="index">
+            <image mode="aspectFill" src="{{item}}"></image>
+        </swiper-item>
+    </swiper>
+    <view class="num f13 white fw">
+        <text>{{currentImage}}</text>/
+    <text>{{discoverInfo.image.length}}</text>
+    </view>
+</view>
+<view class="discover-item">
+    <view class="discover-item-title flex j-between a-item">
+        <view class="flex">
+            <image src="{{discoverInfo.anonymous=='0'?discoverInfo.avatar:'https://www.ixiaochengxu.cc/temp_pic/people_fill.png'}}"></image>
+            <text class="f16 black fw">{{discoverInfo.anonymous=='0'?discoverInfo.nick_name:'匿名用户'}}</text>
+        </view>
+        <view class="flex a-item"></view>
+    </view>
+    <view class="discover-item-con f15 black">
+        <text catchtap="linkToTap" class="sky-blue mr6 fw" data-url="/pages/discover/servicesDiscover/servicesDiscover?mainDocId={{discoverInfo.maindoc_id}}">#{{discoverInfo.title}}#</text>{{discoverInfo.comment}}
+  </view>
+    <view class="discover-item-server">
+        <view class="f13 black fw">服务报价:
+      <text class="discover-item-server-price mr12">¥{{discoverInfo.business_price}}元</text>
+            <block wx:if="{{discoverInfo.service_price!=undefined&&discoverInfo.service_price!=''&&discoverInfo.service_price!='0.00'}}">
+        实收价格:
+        <text class="discover-item-server-price">¥{{discoverInfo.service_price}}元</text>
+            </block>
+        </view>
+        <view class="f13 black flex a-item fw">服务评价:
+      <image mode="aspectFill" src="/images/find/fullstar.png" wx:for="{{discoverInfo.star}}" wx:key="index"></image>
+            <image mode="aspectFill" src="/images/find/nonestar.png" wx:for="{{5-discoverInfo.star}}" wx:key="index"></image>
+        </view>
+    </view>
+    <view class="discover-item-hf f14 black" wx:if="{{false}}">
+        <text class="sky-blue">商家回复：</text>很高心为您服务
+  </view>
+    <view catchtap="linkToTap" class="discover-item-mer flex a-item j-between" data-url="/pages/business/businessIndex/businessIndex?bid={{discoverInfo.businessid}}&isshare=1">
+        <view class="flex a-item">
+            <image class="discover-item-mer-img" mode="aspectFill" src="{{discoverInfo.headimg}}"></image>
+            <view>
+                <view class="discover-item-mer-name f15 black">{{discoverInfo.companytitle}}</view>
+                <view class="f11 black">
+                    <text class="discover-item-mer-text">综合评分:<text class="f13 sky-blue fw">{{discoverInfo.rate}}</text>
+                    </text>
+                    <text class="discover-item-mer-text">已服务:<text>{{discoverInfo.order_count}}</text>单</text>
+                </view>
+            </view>
+        </view>
+        <view class="discover-item-mer-go f11 white tc">进店看看</view>
+    </view>
+    <view class="discover-item-time f12 hui" wx:if="{{false}}">2018-06-21 20:02</view>
+</view>

@@ -1,0 +1,16 @@
+<form bindsubmit="formSubmit" reportSubmit="true">
+    <view class="box-shadow enter">
+        <view class="f15 black fw">姓名：</view>
+        <input class="text black f18 fw" name="name" placeholder="请填写您的姓名" placeholderClass="phcolor" placeholderStyle="color:#cccccc;" type="text"></input>
+        <view class="lxdh f15 black fw">联系电话：</view>
+        <input bindinput="getTel" class="phone black f18 fw" name="phone" placeholder="请填写联系电话" placeholderClass="phcolor" placeholderStyle="color:#cccccc;" type="number"></input>
+        <view class="send-yzm flex a-item j-between">
+            <view class="yzm-left">
+                <view class="f15 black fw">手机验证码：</view>
+                <input class="yzm black f18 fw" name="code" placeholder="请填写验证码" placeholderClass="phcolor" placeholderStyle="color:#cccccc;" type="number"></input>
+            </view>
+            <button catchtap="getCode" class="yzm-right f15 tc">{{codeText}}</button>
+        </view>
+        <button class="submit f18 white tc fw" formType="submit" hoverClass="none" type="primary">立即申请</button>
+    </view>
+</form>

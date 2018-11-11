@@ -1,0 +1,6 @@
+<view catchtap="openSetting" class="setting-item flex a-item" data-name="wechat_setting">
+    <text class="f16 black fw">系统设置</text>
+</view>
+<view catchtap="openSetting" class="setting-item flex a-item" data-name="wechat_clear">
+    <text class="f16 black fw">清除缓存</text>
+</view>

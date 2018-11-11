@@ -1,0 +1,18 @@
+<view class="msgPadding">
+    <view class="audio flex">
+        <view class="audio-title flex a-item">
+            <image class="audio-tt" mode="aspectFill" src="/images/index/audio-tt.png"></image>
+            <text class='textad'>趣闻</text>
+        </view>
+        <swiper circular="{{true}}" class="audio-swiper">
+            <swiper-item catchtap="linkToTap" class="audio-item" data-url="/pages/message/noticeDetail/noticeDetail?id={{item.id}}" wx:for="{{noticeList}}" wx:key="headline">
+                <view class="audio-list box flex j-between a-item">
+                    <view>
+                        <view class="article-tt f12 black fw">{{item.onetitle}}</view>
+                        <view class="article-con f11 hui">{{item.twotitle}}</view>
+                    </view> 
+                </view>
+            </swiper-item>
+        </swiper>
+    </view>
+</view>

@@ -1,0 +1,113 @@
+.add-dz {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding: 0 24rpx 24rpx;
+    background: #F5F8FA;
+}
+
+.add {
+    width: 702rpx;
+    height: 88rpx;
+    line-height: 88rpx;
+    letter-spacing: 3rpx;
+    background: #219cfc!important;
+    border-radius: 12rpx;
+}
+
+.add.orange {
+    background: linear-gradient(to right,rgba(255,92,52,1),rgba(255,132,69,1));
+}
+
+.alter-list {
+    padding: 0 24rpx;
+    background: #F5F8FA;
+}
+
+.alter-item {
+    padding: 21rpx 22rpx 23rpx 19rpx;
+    border-radius: 20rpx;
+    margin-top: 24rpx;
+}
+
+.top {
+    margin-bottom: 26rpx;
+}
+
+.top-r {
+    width: 20%;
+    text-align: center;
+}
+
+.person {
+    width: 51rpx;
+    height: 51rpx;
+}
+
+.location {
+    width: 46rpx;
+    height: 58rpx;
+}
+
+input {
+    margin-top: 10rpx;
+    height: 55rpx;
+    line-height: 55rpx;
+}
+
+.address-data {
+    min-height: 55rpx;
+    line-height: 55rpx;
+    max-width: 500rpx;
+    margin-top: 10rpx;
+}
+
+.address-data-placeholder {
+    color: #cccccc;
+}
+
+.bottom {
+    margin-bottom: 20rpx;
+}
+
+.alter-label {
+    margin-top: 26rpx;
+}
+
+.alter-label.alter-label-bottom {
+    margin-bottom: 26rpx;
+}
+
+.alter-label button {
+    width: 60rpx;
+    height: 38rpx;
+    margin-right: 20rpx;
+    line-height: 38rpx;
+    border: 1rpx solid #999999;
+    color: #999999;
+    border-radius: 5rpx;
+    background: #ffffff;
+}
+
+.alter-label button.active {
+    border: 1rpx solid #219cfc;
+    color: #219cfc;
+}
+
+.set-default {
+    padding-top: 20rpx;
+    position: relative;
+}
+
+.set-default::before {
+    display: block;
+    content: "";
+    width: 100%;
+    height: 1px;
+    background: #cccccc;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: scaleY(0.5);
+    transform-origin: top center;
+}

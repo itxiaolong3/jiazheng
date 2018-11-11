@@ -1,0 +1,5 @@
+<view class="logo tc">
+    <image mode="aspectFit" src="http://xrs.duoguan.com/2018-10-15_5bc3f8ed98784.png"></image>
+    <view class="con f16 gray">为了更好的体验,此应用需要获取您的昵称、头像等基本信息授权</view>
+    <button class="white f20">确定授权</button>
+</view>

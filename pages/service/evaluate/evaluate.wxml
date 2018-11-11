@@ -1,0 +1,72 @@
+<form bindsubmit="onPushSubmit" reportSubmit="{{true}}">
+    <view class="container">
+        <view class="mer-name br20 box">
+            <image class="mer-img" src="{{businessInfo['headimg']}}"></image>
+            <view>
+                <view class="f16 fw letter black name l1">{{businessInfo['title']}}</view>
+                <view class="black f12 flex a-item l1 mt9">商家接单：
+          <text class="ml6 fw sky-blue">{{businessInfo['order_count']}}</text> 单
+        </view>
+                <view class="flex a-item black f12 l1 mt9">综合评价：
+          <text class="sky-blue ml6 fw">{{businessInfo['rate']}}</text> 分
+        </view>
+            </view>
+        </view>
+        <view class="mer-eval box br20">
+            <view class="title black fw f18 mb25">商家评分</view>
+            <view class="eval-detail">
+                <view class="detail">
+                    <view class="f15  black letter">综合评价：</view>
+                    <view class="score">
+                        <text catchtap="onReduceStart" class="iconfont icon-star f24 blue user-score" data-index="{{index}}" wx:for="{{full}}" wx:key="{{index}}"></text>
+                        <text catchtap="onAddStart" class="iconfont icon-star f24 gray user-score" data-index="{{index}}" wx:for="{{line}}" wx:key="{{index}}"></text>
+                    </view>
+                    <view class="tc f18 num">
+                        <text class="blue active fw num-text">{{full}}分</text>
+                        <text class="hui fw num-text">请打分</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="mer-price box br20">
+            <view class="black fw f18 letter mb25">服务价格</view>
+            <view class="flex a-item j-between mer-price-con">
+                <text class="f15 black mer-price-left  letter">请输入价格：</text>
+                <view class="flex a-item mer-price-right">
+                    <input class="tr f18 black" name="servicePrice" placeholder="请您输入价格" placeholderStyle="color:#dddddd;" type="number"></input>
+                    <text class="f15 black ml6">元</text>
+                </view>
+            </view>
+        </view>
+        <view class="mer-label br20 box">
+            <view class="black fw f18 letter mb25">请输入评价</view>
+            <view class="label flex" wx:if="{{false}}">
+                <text class="hui f12 active label-content">标签内容</text>
+            </view>
+            <textarea class="f12 hui eval-con br20" name="comment" placeholder="评价商家,让其他用户看到"></textarea>
+            <view class="add-photo flex">
+                <view catchtap="onPreviewTap" class="user-img flex a-item" data-index="{{index}}" wx:for="{{imgs}}" wx:key="{{index}}">
+                    <image class="user-photo" mode="aspectFill" src="{{item.path}}"></image>
+                    <image catchtap="onRemoveImgTap" class="close" data-index="{{index}}" mode="aspectFill" src="/images/user/close-img.png"></image>
+                    <view class="image-info">
+                        <block wx:if="{{item.state==0}}">等待上传</block>
+                        <block wx:elif="{{item.state==1}}">上传成功</block>
+                        <block wx:elif="{{item.state==2}}">上传失败</block>
+                    </view>
+                </view>
+                <view bindtap="onAddImgTap" class="box flex a-item" hidden="{{imgs.length>=6}}">
+                    <image class="photo" mode="aspectFill" src="http://xrs.duoguan.com/2018-10-15_5bc3f7538ba4c.png"></image>
+                    <text class="f12 hui fw">添加照片</text>
+                </view>
+            </view>
+            <view catchtap="onAnonymousComment" class="anony flex a-item">
+                <text class="iconfont icon-xuanze1 f20 black" wx:if="{{!anonymouse}}"></text>
+                <text class="iconfont icon-xuanze f20 sky-blue" wx:else></text>
+                <text class="f15 anony-text">匿名评价</text>
+            </view>
+        </view>
+    </view>
+    <view class="submit">
+        <button class="f18 white letter tc button fw" formType="submit">提交评价</button>
+    </view>
+</form>
