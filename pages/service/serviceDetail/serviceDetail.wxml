@@ -6,7 +6,7 @@
                 <text class="f19 black fw letter">{{docInfo['title']}}</text>
             </view>
             <view class="con-right" wx:if="{{isShare!=1}}">
-                <text class="f15 black letter">预约订金</text>
+                <text class="f15 black letter">费用</text>
                 <text class="f15 red fw">￥</text>
                 <text class="f23 red fw">{{docInfo['earnest_price']}}</text>
             </view>
@@ -32,39 +32,8 @@
                     </view>
                 </view>
             </view>
-            <view class="detail-near">
-                <view class="near-title f18 fw black letter">{{businessId===0?'附近商家：':'服务商家：'}}</view>
-                <view class="near-con flex a-item j-between">
-                    <view class="flex a-item better-mer-other">
-                        <block wx:if="{{isShare==0}}">
-                            <block wx:if="{{aroundBusinessNum!=0}}">
-                                <view class="near-num white f14">
-                                    <text>{{aroundBusinessNum}}</text>
-                                </view>
-                                <view class="f15 black">家可为您服务</view>
-                            </block>
-                            <view class="f15 hui mt6 l1" wx:else>抱歉！您的周围暂无商家，请切换地址！</view>
-                        </block>
-                        <view class="f15 hui mt6 l1" wx:else>{{businessInfo.title}} 为您提供服务！</view>
-                    </view>
-                    <view class="flex a-item better-mer" wx:if="{{false}}">
-                        <text class="iconfont icon-xuanze1 f16 hui mr4"></text>
-                        <text class="iconfont icon-xuanze f16 sky-blue mr4"></text>
-                        <text class="f11 hui">勾选优质商家</text>
-                    </view>
-                </view>
-            </view>
-            <view class="detail-time">
-                <view class="time-title f18 fw black letter">选择时间：</view>
-                <view class="flex a-item j-between">
-                    <picker bindchange="changeTimePicker" bindcolumnchange="changeTimeColumnPicker" mode="multiSelector" range="{{reserveDate}}">
-                        <view class="picker f15 black">
-              {{nowTime}}
-              <text class="iconfont icon-fanhui black fw f13 ml6"></text>
-                        </view>
-                    </picker>
-                </view>
-            </view>
+            
+            
             <view class="detail-note">
                 <view class="note-title f18 fw black letter">订单备注:</view>
                 <view class="note-con">
@@ -74,19 +43,7 @@
                     <text bindtap="checked" class="{{item.class}} note-list-text" data-index="{{index}}" wx:for="{{remark}}">{{item.text}}
         </text>
                 </view>
-                <view class="youhui" wx:if="{{false}}">
-                    <view class="juan flex j-between a-item">
-                        <text class="f15 {{true?'black':'hui'}} letter fw">附近家政代金券</text>
-                        <text class="f15 juan-jian fw" wx:if="{{false}}">-¥5</text>
-                        <view class="flex a-item">
-                            <view class="juan-ky flex a-item active">
-                                <image mode="aspectFill" src="/images/index/quan-ky.png"></image>
-                                <text class="f10 white">1个可用</text>
-                            </view>
-                            <text class="iconfont icon-fanhui f12 fw gray ml6"></text>
-                        </view>
-                    </view>
-                </view>
+                
             </view>
         </view>
     </view>
@@ -96,15 +53,6 @@
                 <text class="f15 red fw ">￥ </text>
                 <text class="f23 red fw">{{docInfo['earnest_price']}}</text>
             </view>
-            <view class="total-price" wx:else>
-                <text class="f18 red fw">免订金</text>
-            </view>
-            <block wx:if="{{false}}">
-                <view class="xian"></view>
-                <view>
-                    <text class="f11 black">暂无优惠</text>
-                </view>
-            </block>
         </view>
         <button class="f16 submit letter fw tc " disabled="{{!canSubmit&&isShare!=1}}" formType="submit">提交订单</button>
     </view>

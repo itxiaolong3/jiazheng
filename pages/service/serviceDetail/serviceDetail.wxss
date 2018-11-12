@@ -34,7 +34,10 @@
 }
 
 .addr-title {
-    margin-bottom: 25rpx;
+    margin-bottom: 2rpx;
+    color: rgb(112, 112, 112);
+    font-size: 32rpx;
+
 }
 
 .addr-txt {
@@ -98,7 +101,9 @@ picker {
 }
 
 .note-title {
-    margin-bottom: 34rpx;
+    margin-bottom: 25rpx;
+     color: rgb(112, 112, 112);
+    font-size: 32rpx;
 }
 
 .note-con {
