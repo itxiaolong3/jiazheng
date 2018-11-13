@@ -1,5 +1,7 @@
 {
     "usingComponents": {
-        "compoent-message": "/pages/component/messagePush/messagePush"
+        "compoent-message": "/pages/component/messagePush/messagePush",
+        "user-auth": "/pages/component/userAuth/userAuth"
     }
+   
 }

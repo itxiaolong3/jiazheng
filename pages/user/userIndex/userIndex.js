@@ -8,39 +8,49 @@ e(require("../../../utils/util.js"));
 
 var t = e(require("../../../utils/request.js")), n = e(require("../../../utils/user-utils.js")), u = e(require("../../../utils/listener"));
 
-getApp();
+const app = getApp()
 
 Page({
     data: {
-        userInfo: null,
+        userInfo: [],
         isShowAuth: !0,
         isShowTip: !1,
         count: []
     },
-    onLoad: function(e) {},
+    onLoad: function(e) {
+      console.log('执行onload');
+    },
     onShow: function() {
-        u.default.addEventListener("user.info.update", this.onUserInfoUpdate), this.onPullDownRefresh();
+        this.onPullDownRefresh();
+      console.log('执行onShow');
     },
-    onUserInfoUpdate: function(e) {
-        var t = !1;
-        e.mobile || (t = !0), this.setData({
-            userInfo: e,
-            isShowTip: t
-        });
-    },
+    
     onUnload: function() {
-        u.default.removeEventListener("user.info.update", this.onUserInfoUpdate);
+      console.log('执行onUnload');
     },
     onPullDownRefresh: function() {
         var e = this;
-        n.default.getUserInfo(!0).then(function(e) {
-            u.default.fireEventListener("user.info.update", e);
-        }).finally(function() {
-            wx.stopPullDownRefresh();
-        }), t.default.get("getStatistics", {}, function(t) {
-            e.setData({
-                count: t.data
-            });
-        });
+      e.getuserinfo();
+    },
+    getuserinfo:function(){
+      let t = this;
+      app.http_get('Getuserinfo&openid='+wx.getStorageSync('openid'), (ret) => {
+        wx.stopPullDownRefresh();
+        console.log(ret);
+        if (ret.code==1){
+          t.setData({
+            userInfo: ret.result,
+            isShowAuth:!1
+          })
+        }else{
+            console.log('没有用户授权');
+        }
+          
+        
+      })
+    },
+    onHide:function(){
+      console.log('执行onHide');
     }
+    
 });

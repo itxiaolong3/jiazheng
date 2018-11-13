@@ -157,26 +157,13 @@ Page({
   },
     onShow: function() {
         var e = this, t = this;
-        // s.default.addEventListener("selectAddress", function(e) {
-        //     var s = {
-        //         docId: t.data.docId,
-        //         addressId: e
-        //     };
-        //     a.default.post("selectAddress", s, function(a) {
-        //         t.setData({
-        //             addressId: e,
-        //             addressInfo: a.data.addressInfo || [],
-        //             aroundBusinessNum: a.data.aroundBusinessNum,
-        //             canSubmit: !(!a.data.addressInfo.id || !a.data.aroundBusinessNum)
-        //         });
-        //     });
-        // }),
-        
-        //  a.default.get("checkBind", {}, function(a) {
-        //     e.setData({
-        //         isBind: a.data
-        //     });
-        // });
+        let openid=wx.getStorageSync('openid');
+        if(!openid){
+          wx.switchTab({
+            url: '/pages/user/userIndex/userIndex'
+          })
+        }
+
     },
     onUnload: function() {
         s.default.removeEventListener("selectAddress");
@@ -208,5 +195,6 @@ Page({
         t.default.navigateTo({
             url: "/pages/order/orderList/orderList"
         });
-    }
+    },
+    
 });

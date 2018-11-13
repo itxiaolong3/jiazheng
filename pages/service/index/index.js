@@ -16,7 +16,8 @@ Page({
         businessInfo: [],
         businessPage: 1,
         businessHasMore: !0,
-        orderList: []
+        orderList: [],
+        isShowAuth:!0
     },
     onLoad: function(t) {
         //this.getConfig();
@@ -25,6 +26,9 @@ Page({
     onShow: function() {
         //this.getLocation(),
          this.getOrderList();
+      this.setData({
+        isShowAuth: wx.getStorageSync('openid')?!1:!0
+        })
     },
     onShareAppMessage: function() {
         return {

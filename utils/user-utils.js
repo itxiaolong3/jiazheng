@@ -8,10 +8,9 @@ Object.defineProperty(exports, "__esModule", {
     value: !0
 });
 
-var n = e(require("./dg")), r = e(require("./util")), t = e(require("./listener")), s = e(require("./request"));
+var n = e(require("./dg")), r = e(require("./util")), t = e(require("./listener")), s = e(require("./request")), my = e(require("./myrequest"));
 
 e(require("../config"));
-
 exports.default = {
     getUserInfo: function() {
         var e = arguments.length > 0 && void 0 !== arguments[0] && arguments[0];
@@ -45,11 +44,37 @@ exports.default = {
         });
     },
     saveUserInfo: function(e) {
-        return s.default.post("saveUserInfo", e, null, {
-            needAuth: !0
-        }).then(function(e) {
-            return t.default.fireEventListener("user.info.update", e.data), e;
-        });
+      console.log('user-utils里面的');
+      console.log(e);
+      console.log(my);
+      wx.login({
+        success(res) {
+          if (res.code) {
+            var data = {
+              code: res.code,
+              nickname: e.nick_name,
+              headerimg: e.avatar
+            };
+            
+            //发起网络请求
+            my.default.postReq('doLogin',
+              data, (ret) => {
+                console.log(ret);
+                wx.setStorageSync('openid', ret.userinfo.openId);
+                t.default.fireEventListener("user.info.update", ret.userinfo)
+                
+              })
+          } else {
+            console.log('登录失败！' + res.errMsg)
+          }
+        }
+      })
+     
+        // return s.default.post("saveUserInfo", e, null, {
+        //     needAuth: !0
+        // }).then(function(e) {
+        //     return t.default.fireEventListener("user.info.update", e.data), e;
+        // });
     },
     saveUserInfoBySys: function(e) {
         var n = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : 1;

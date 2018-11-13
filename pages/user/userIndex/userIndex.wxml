@@ -1,7 +1,7 @@
 <view bindtap="" class="head" data-url="/pages/user/userInfo/userInfo">
     <image class="head-bcg" mode="aspectFill" src="http://xrs.duoguan.com/2018-10-15_5bc3f3dd88c41.png"></image>
-    <image class="head-info" mode="aspectFill" src="{{userInfo['avatar']}}"></image>
-    <view class="head-name f19 white fw">{{userInfo['nick_name']}}</view>
+    <image class="head-info" mode="aspectFill" src="{{userInfo['headerimg']}}"></image>
+    <view class="head-name f19 white fw">{{userInfo['nickname']}}</view>
     <view catchtap="linkToTap" class="head-phone f13 white fw" data-url="/pages/user/bindTel/bindTel">{{userInfo['mobile']?userInfo['mobile']:'未绑定手机号'}}</view>
 </view>
 <view class="order">
