@@ -1,18 +1,28 @@
 <form bindsubmit="submitForm" reportSubmit="{{true}}">
     <view class="detail-top box-shadow">
+     <view class="addr-title f18 fw black letter">师傅类型</view>
+        <view class="top-con box flex a-item j-between">
+            <radio-group class="group" bindchange="radioChange">
+                    <label class="radio" wx:for="{{infoarr}}" wx:key="index">
+                    <view class="attr_value ">
+                      <radio value="{{item.grage}}" color="" bindtap='radio' data-id="{{item.id}}" data-price="{{item.price}}" checked="{{item.checked}}"/><span>{{item.grage}}</span>
+                      </view>
+                    </label>
+            </radio-group>
+        </view>
+    </view>
+    <view class="detail-top box-shadow">
         <view class="top-con box flex a-item j-between">
             <view class="con-left flex a-item">
-                <image mode="aspectFill" src="{{docInfo['cover']}}" wx:if="{{false}}"></image>
-                <text class="f19 black fw letter">{{docInfo['title']}}</text>
+                <image mode="aspectFill" src="{{allinfo['img']}}"></image>
+                <text class="f19 black fw letter">{{allinfo['name']}}</text>
             </view>
-            <view class="con-right" wx:if="{{isShare!=1}}">
+            <view class="con-right">
                 <text class="f15 black letter">费用</text>
                 <text class="f15 red fw">￥</text>
-                <text class="f23 red fw">{{docInfo['earnest_price']}}</text>
+                <text class="f23 red fw">{{price}}</text>
             </view>
-            <view class="con-right" wx:else>
-                <text class="f18 red fw">免订金</text>
-            </view>
+            
         </view>
     </view>
     <view class="detail-bottom">
@@ -31,11 +41,21 @@
                         <button bindtap="linkToTap" class="f12 white choose-addr" data-url="/pages/address/addressList/addressList?isSelect=1">选择地址</button>
                     </view>
                 </view>
+                <view class='nostyle'></view>
+                <view class="addr-title f18 fw black letter">上传物品图片(*最多三张)
+                  <view class='jiaxuan'>
+                      <view class='gbd' wx:for='{{serverimglist}}'>
+                        <image class='gb' src='../../../images/uploadimg/gb.png' catchtap="delete" data-inde="{{index}}"></image>
+                        <image class='jiaxuand' wx:if='{{serverimglist}}' src='{{item}}' bindtap='chooseimage'></image>
+                      </view>
+                      <image wx:if='{{serverimglist.length<3}}' src='../../../images/uploadimg/jiaxuan.png' class='jiaxuand' bindtap='chooseimage'></image> 
+                    </view>
+                </view>
             </view>
             
             
             <view class="detail-note">
-                <view class="note-title f18 fw black letter">订单备注:</view>
+                <view class="note-title f18 fw black letter">问题描述:</view>
                 <view class="note-con">
                     <textarea class="f15 black" name="remark" placeholder="请填写您的备注信息" placeholderStyle="font-size:30rpx;"></textarea>
                 </view>
@@ -51,7 +71,7 @@
         <view class="price flex a-item">
             <view class="total-price" wx:if="{{isShare!=1}}">
                 <text class="f15 red fw ">￥ </text>
-                <text class="f23 red fw">{{docInfo['earnest_price']}}</text>
+                <text class="f23 red fw">{{price}}</text>
             </view>
         </view>
         <button class="f16 submit letter fw tc " disabled="{{!canSubmit&&isShare!=1}}" formType="submit">提交订单</button>

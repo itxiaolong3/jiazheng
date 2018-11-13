@@ -18,22 +18,7 @@
         </view>
         <view class="mes-br"></view>
     </block>
-    <view catchtap="linkToTap" class="mes-list" data-url="/pages/message/officialNotice/officialNotice">
-        <image class="mes-list-img" mode="aspectFit" src="http://xrs.duoguan.com/2018-10-22_5bcd48ae1ff04.png"></image>
-        <view class="mes-content">
-            <view class="content-top">
-                <text class="f17 black fw">通知中心</text>
-                <text class="times tr f11 hui">{{create_time}}</text>
-            </view>
-            <view class="content-bottom f13 black">
-         {{title}}
-        </view>
-        </view>
-    </view>
+    
     <view class="mes-br"></view>
-    <view bindtap="linkToTap" class="mes-other" data-url="/pages/message/myEvaluate/myEvaluate">
-        <image class="mes-other-img" mode="aspectFit" src="http://xrs.duoguan.com/2018-10-22_5bcd8c8c6ba7e.png"></image>
-        <view class="other-title f17 fw black">我的评价</view>
-        <text class="f11 time-b hui" wx:if="{{false}}">2018-06-23 12:30</text>
-    </view>
+    
 </view>

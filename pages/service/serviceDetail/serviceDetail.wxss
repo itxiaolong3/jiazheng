@@ -200,3 +200,107 @@ picker {
     background: #e2e2e2;
     color: #717171;
 }
+.group{
+  width: 100%;
+}
+.attr_value {
+      float: left;
+      margin-right:30rpx;
+      position: relative;
+      color: #999999;
+      padding: 15rpx;
+      text-align: center
+}
+.attr_value span{
+  padding: 50rpx;
+  
+}
+.radio_label{
+      display: block;
+      padding:0 24rpx;
+      height: 70rpx;
+      line-height: 70rpx;
+}
+/*radio默认样式重置*/
+radio {
+      box-sizing: border-box;
+      background: none;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top:0;
+      left:0;
+      
+      
+}
+
+radio .wx-radio-input {
+      margin-right: 15rpx;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top:0;
+      left:5rpx;
+      background: none;
+      border-radius: 12rpx;
+      box-sizing: border-box;
+}
+
+radio .wx-radio-input.wx-radio-input-checked {
+      background-color:transparent;
+      border-color:#FF2150;
+      overflow: hidden;
+      box-sizing: border-box;
+      width: 160rpx;
+      height: 70rpx;
+      text-align: center;
+      margin-left: 40rpx;
+     
+}
+/* 阿里图标 */
+@font-face {font-family: "iconfont";
+  src: url('iconfont.eot?t=1542012349414'); /* IE9*/
+  src: url('iconfont.eot?t=1542012349414#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('data:application/x-font-woff;charset=utf-8;base64,d09GRgABAAAAAAQkAAsAAAAABmQAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABHU1VCAAABCAAAADMAAABCsP6z7U9TLzIAAAE8AAAARAAAAFY8kUkKY21hcAAAAYAAAABLAAABcOdDtftnbHlmAAABzAAAAGwAAABsgBHjH2hlYWQAAAI4AAAALwAAADYUCQF4aGhlYQAAAmgAAAAeAAAAJAipBXtobXR4AAACiAAAAAgAAAAICfgAAGxvY2EAAAKQAAAABgAAAAYANgAAbWF4cAAAApgAAAAgAAAAIAEPACduYW1lAAACuAAAAUUAAAJtPlT+fXBvc3QAAAQAAAAAIgAAADNa7tHneJxjYGRgYOBikGPQYWB0cfMJYeBgYGGAAJAMY05meiJQDMoDyrGAaQ4gZoOIAgCKIwNPAHicY2Bk+cM4gYGVgYOpk+kMAwNDP4RmfM1gxMjBwMDEwMrMgBUEpLmmMDg8k34mzdzwv4EhhrmRoQEozAiSAwAzKw0WeJxjYGBgZWBgYAZiHSBmYWBgDGFgZAABP6AoI1icmYELLM7CoARWwwISfyb9/z+MBPJZwCQDIxvDKOABkzJQHjisIJiBEQBq8AnVAAADAAD/gATLA4EABgAZABoAAAEuAQchARELAQ4BLwEuATc+AR8BNz4BFx4BBwTKA1gx/FYENmrtARYTZwEHDAUPC1zjARALBQIHAtxYTQH8AAEeAjr+6gIOEIkBEwsEAglI0QIIBgMOCwAAAHicY2BkYGAAYiPh0Nfx/DZfGbhZGEDgBn/cXgT9v4HlNHMjkMvBwAQSBQAQNgoWAHicY2BkYGBu+N/AEMP6gwEIWE4zMDKgAiYAbmsELwAABAAAAAX4AAAAAAAAADYAAAABAAAAAgAbAAMAAAAAAAIAAAAKAAoAAAD/AAAAAAAAeJxlj01OwzAQhV/6B6QSqqhgh+QFYgEo/RGrblhUavdddN+mTpsqiSPHrdQDcB6OwAk4AtyAO/BIJ5s2lsffvHljTwDc4Acejt8t95E9XDI7cg0XuBeuU38QbpBfhJto41W4Rf1N2MczpsJtdGF5g9e4YvaEd2EPHXwI13CNT+E69S/hBvlbuIk7/Aq30PHqwj7mXle4jUcv9sdWL5xeqeVBxaHJIpM5v4KZXu+Sha3S6pxrW8QmU4OgX0lTnWlb3VPs10PnIhVZk6oJqzpJjMqt2erQBRvn8lGvF4kehCblWGP+tsYCjnEFhSUOjDFCGGSIyujoO1Vm9K+xQ8Jee1Y9zed0WxTU/3OFAQL0z1xTurLSeTpPgT1fG1J1dCtuy56UNJFezUkSskJe1rZUQuoBNmVXjhF6XNGJPyhnSP8ACVpuyAAAAHicY2BigAAuBuyAiZGJkZmBs6I0Ma8qIz8vnYEBAB6mBAEAAA==') format('woff'),
+  url('iconfont.ttf?t=1542012349414') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('iconfont.svg?t=1542012349414#iconfont') format('svg'); /* iOS 4.1- */
+}
+radio .wx-radio-input.wx-radio-input-checked:before {
+   content: "\e61b";
+   font-family:"iconfont" !important;
+      font-size:50rpx;
+      color: #FF2150;
+      top:auto;
+      right:-30rpx;
+      bottom:13rpx;
+      transform:translate(0, 0) scale(1);
+      -webkit-transform:translate(0, 0) scale(1);
+  }
+  /* 阿里图标结束 */
+  /*radio默认样式重置*/
+  /* 上传图片样式 */
+  .jiaxuan {
+  margin-top: 60rpx;
+  padding: 0 30rpx;
+}
+
+.jiaxuand {
+  width: 118rpx;
+  height: 118rpx;
+  margin-right: 10rpx;
+}
+.gbd {
+  position: relative;
+  display: inline-block;
+}
+
+.gb {
+  width: 40rpx;
+  height: 40rpx;
+  position: absolute;
+  right: 0;
+  top: 0；;
+}
+.nostyle{
+  margin-top: 40rpx;
+}

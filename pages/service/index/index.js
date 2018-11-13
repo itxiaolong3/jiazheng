@@ -28,7 +28,7 @@ Page({
     },
     onShareAppMessage: function() {
         return {
-            title: "附近家政",
+            title: "武穴家政",
             path: "/pages/service/index/index"
         };
     },
