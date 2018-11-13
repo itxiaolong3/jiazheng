@@ -5,7 +5,7 @@ function t(t) {
 }
 
 t(require("../../../utils/util.js"));
-
+const app=getApp()
 var e = t(require("../../../utils/request.js")), a = t(require("../../../utils/dg.js")), s = t(require("../../../utils/listener.js"));
 
 Page({
@@ -25,18 +25,18 @@ Page({
         this.onPullDownRefresh();
     },
     onPullDownRefresh: function() {
+      //MyAddress
         var t = this;
-        e.default.get("getAddressList", {
-            _p: 1
-        }, function(e) {
-            Array.isArray(e.data) && 0 === e.data.length ? t.setData({
-                noData: !0,
-                addressInfo: []
-            }) : t.setData({
-                noData: !1,
-                addressInfo: e.data
-            });
+      app.http_get('MyAddress&openid='+wx.getStorageSync('openid'), (ret) => {
+       console.log(ret.Data);
+        Array.isArray(ret.Data) && 0 === ret.Data.length ? t.setData({
+          noData: !0,
+          addressInfo: []
+        }) : t.setData({
+          noData: !1,
+          addressInfo: ret.Data
         });
+      })
     },
     onReachBottom: function() {
         var t = this;
@@ -76,6 +76,7 @@ Page({
     },
     backPage: function(t) {
         var e = this.data.isSelect, n = t.currentTarget.id;
+        console.log(n);
         if (0 == e) return !1;
         s.default.fireEventListener("selectAddress", n), a.default.navigateBack({});
     }

@@ -11,7 +11,7 @@
             <view class="addr-title flex a-item">
                 <text class="black f19 letter fw addr-title-name">{{item['name']}}</text>
                 <text class="black f16 fw ml6 mr6">{{item['gender']==1?'先生':'女士'}}</text>
-                <text class="black f19 letter fw">{{item['mobile']}}</text>
+                <text class="black f19 letter fw">{{item['phone']}}</text>
                 <text class="address-label f11 sky-blue tc" wx:if="{{item['label']==1}}">家里</text>
                 <text class="address-label f11 sky-blue tc" wx:if="{{item['label']==2}}">公司</text>
                 <text class="address-label f11 sky-blue tc" wx:if="{{item['label']==3}}">学校</text>

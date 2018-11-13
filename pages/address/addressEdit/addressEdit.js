@@ -3,7 +3,7 @@ function t(t) {
         default: t
     };
 }
-
+const app = getApp()
 t(require("../../../utils/util.js"));
 
 var a = t(require("../../../utils/request.js")), e = t(require("../../../utils/dg.js"));
@@ -45,30 +45,34 @@ Page({
         var s = t.detail.value, i = {
             id: this.data.addressId,
             name: s.name,
-            mobile: s.mobile,
+            phone: s.mobile,
             gender: this.data.gender,
             label: this.data.label,
             address: this.data.addressData.address,
-            detail_info: s.detail_info,
+            detailadd: s.detail_info,
             latitude: this.data.addressData.latitude,
             longitude: this.data.addressData.longitude,
-            is_use_location: 1,
-            mode: 0,
+            openid: wx.getStorageSync('openid'),
             is_default: this.data.is_default ? 1 : 0
         };
-        a.default.post("saveAddressInfo", i, function(t) {
-            wx.showToast({
-                title: 0 == d.data.addressId ? "添加成功" : "编辑成功",
-                mask: !0
-            }), setTimeout(function() {
-                e.default.navigateBack({});
-            }, 1e3);
-        });
+        console.log(i);
+      app.http_post('Saveadd',
+        i, (ret) => {
+          console.log(ret);
+          wx.showToast({
+            title: 0 == d.data.addressId ? "添加成功" : "编辑成功",
+            mask: !0
+          }), setTimeout(function () {
+            e.default.navigateBack({});
+          }, 1e3);
+        })
+        
     },
     chooseLocation: function() {
         var t = this, a = t.data.addressData;
         e.default.chooseLocation({
             success: function(e) {
+              console.log(e);
                 a.address = e.address, a.latitude = e.latitude, a.longitude = e.longitude, t.setData({
                     address: e.address,
                     latitude: e.latitude,
