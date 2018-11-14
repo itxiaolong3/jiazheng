@@ -27,21 +27,30 @@ Page({
     onShow: function() {},
     getAddressInfo: function(t) {
         var e = this;
-        a.default.post("getAddressInfo", {
-            id: t
-        }, function(a) {
-            e.setData({
-                addressId: t,
-                addressData: a.data,
-                gender: a.data.gender,
-                label: a.data.label,
-                is_default: a.data.is_default
-            });
+        //getoneAdd
+      app.http_get('getoneAdd&id=' + t, (ret) => {
+        console.log(ret.Data);
+        e.setData({
+          addressId: t,
+          addressData: ret.Data,
+          gender: ret.Data.gender,
+          label: ret.Data.label,
+          is_default: ret.Data.is_default
         });
+      })
     },
     submitForm: function(t) {
         var d = this;
-        a.default.pushFormId(t.detail.formId);
+      let fid = t.detail.formId;
+      //保存formid用户发送模板消息
+      let fdata = {
+        openid: wx.getStorageSync('openid'),
+        form_id: fid
+      }
+      app.http_post('AddFormId',
+        fdata, (ret) => {
+          console.log('地址中已保存formid');
+        })
         var s = t.detail.value, i = {
             id: this.data.addressId,
             name: s.name,

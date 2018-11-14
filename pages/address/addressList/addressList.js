@@ -14,11 +14,14 @@ Page({
         page: 1,
         addressInfo: [],
         hasMore: !0,
-        isSelect: 0
+        isSelect: 0,
+        id:''
     },
     onLoad: function(t) {
+      console.log(t);
         this.setData({
-            isSelect: t.isSelect || 0
+            isSelect: t.isSelect || 0,
+            id:t.id
         });
     },
     onShow: function() {
@@ -53,31 +56,38 @@ Page({
         });
     },
     deleteAddress: function(t) {
-        var a = this;
+      var a = this;//DelAdd
         wx.showModal({
             title: "操作提示",
             content: "您确定要删除改地址吗？",
             success: function(s) {
                 if (!0 !== s.cancel) {
                     var n = t.currentTarget.id;
-                    e.default.post("deleteAddress", {
-                        id: n
-                    }, function(t) {
-                        wx.showToast({
-                            title: "删除成功",
-                            mask: !0
-                        }), setTimeout(function() {
-                            a.onPullDownRefresh();
-                        }, 1e3);
-                    });
+                  app.http_get("DelAdd&id="+n,(ret) =>{
+                      wx.showToast({
+                        title: "删除成功",
+                        mask: !0
+                      }), setTimeout(function () {
+                        a.onPullDownRefresh();
+                      }, 1e3);
+                    })
+                   
                 }
             }
         });
     },
     backPage: function(t) {
         var e = this.data.isSelect, n = t.currentTarget.id;
-        console.log(n);
-        if (0 == e) return !1;
-        s.default.fireEventListener("selectAddress", n), a.default.navigateBack({});
+        //console.log(n);
+      app.data.typeid = this.data.id;
+      app.data.addid=n;
+      console.log('保存到全局的数据addid'+app.data.addid);
+      console.log('保存到全局的数据typeid' + app.data.typeid);
+      wx.navigateBack({
+        delta:1
+      })
+        // wx.redirectTo({
+        //   url: '/pages/service/serviceDetail/serviceDetail?n=' + n +'&docId='+this.data.id,
+        // })
     }
 });

@@ -38,7 +38,7 @@
                         <view class="f15 hui mt6 l1">{{addressInfo['address']}}{{addressInfo['detail_info']}}</view>
                     </view>
                     <view class="addr-button flex">
-                        <button bindtap="linkToTap" class="f12 white choose-addr" data-url="/pages/address/addressList/addressList?isSelect=1">选择地址</button>
+                        <button bindtap="linkToTap" class="f12 white choose-addr" >选择地址</button>
                     </view>
                 </view>
                 <view class='nostyle'></view>
@@ -74,7 +74,7 @@
                 <text class="f23 red fw">{{price}}</text>
             </view>
         </view>
-        <button class="f16 submit letter fw tc " disabled="{{!canSubmit&&isShare!=1}}" formType="submit">提交订单</button>
+        <button class="f16 submit letter fw tc " disabled="{{false}}" formType="submit">提交订单</button>
     </view>
 </form>
 <bind-tel showBindTip="{{!isBind}}" showClose="{{false}}"></bind-tel>

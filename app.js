@@ -10,7 +10,10 @@ var i = e(require("./utils/listener.js")), t = e(require("./config"));
 
 App({
   data: {
-    url: 'https://jin.itxiaolong.cn/app/index.php?i=3&c=entry&a=wxapp&m=jiaju&do='
+    url: 'https://jin.itxiaolong.cn/app/index.php?i=3&c=entry&a=wxapp&m=jiaju&do=',
+    addid:'',
+    typeid:''
+
   },
   http_get: function (method, callback) {
     wx.request({

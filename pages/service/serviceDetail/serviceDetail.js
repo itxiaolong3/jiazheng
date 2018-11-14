@@ -13,7 +13,6 @@ Page({
       isShare: 0,
       businessId: 0,
       addressId: 0,
-      docId: 0,
       latitude: "",
       longitude: "",
       isBind: !0,
@@ -34,10 +33,27 @@ Page({
       publisherarticle: [],
       serverimglist: [],//保存服务器返回的地址
       postimgurl: '',//当需要提交的时候就拼接数组放到这里提交保存即可
+      thisid:''
     },
     onLoad: function(e) {
-      let id = e.docId;
+
+      console.log('加载进来');
+      console.log(e);
       let t = this;
+      let id = e.docId;
+      let seleaddid=app.data.addid;
+     
+      if(id==''||id==0){
+        id = app.data.typeid;
+      }
+      if(seleaddid){
+        t.getselectaddress(seleaddid);
+      }else{
+        t.getselectaddress(0);
+      }
+      this.setData({
+        thisid:id
+      });
       app.http_post('Getservice', 
         { sid: id }, (ret) => {
           console.log(ret);
@@ -63,7 +79,7 @@ Page({
       price: e.currentTarget.dataset.price
     });
   },
-  // 发货地址选择,获取用户选择的单选框的值
+  //获取用户选择的单选框的值
   radioChange: function (e) {
     console.log('等级=' + e.detail.value)
     this.setData({
@@ -131,7 +147,15 @@ Page({
           uploaded_pic_list: uploaded_pic_list,
           serverimglist: serverimglist
         })
-        console.log(serverimglist);
+        let postpath='';
+        serverimglist.forEach((value, index, array) => {
+          
+          postpath +=value+','
+        })
+        that.setData({
+          uploadimgurl: postpath.substr(0, postpath.length - 1)
+        })
+        console.log('需要上传的图片路径' + that.data.uploadimgurl);
       },
       fail: function (e) {
         console.log(e)
@@ -154,47 +178,140 @@ Page({
     imgsArray.remove(imgsArray[a]), t.setData({
       serverimglist: imgsArray
     })
+    let postpath = '';
+    imgsArray.forEach((value, index, array) => {
+      postpath += value + ','
+    })
+    t.setData({
+      uploadimgurl: postpath.substr(0, postpath.length - 1)
+    })
+    console.log('删除后提交的图片路径' + postpath.substr(0, postpath.length - 1));
   },
     onShow: function() {
+      console.log("执行onShow");
         var e = this, t = this;
         let openid=wx.getStorageSync('openid');
+      let id = t.data.thisid;
         if(!openid){
           wx.switchTab({
             url: '/pages/user/userIndex/userIndex'
           })
         }
-
+      console.log('下单里面获取app中的addid=' + seleaddid);
+      console.log('下单里面获取app中的typeid=' + app.data.typeid);
+      let seleaddid = app.data.addid;
+      if (id == '' || id == 0) {
+        id = app.data.typeid;
+      }
+      if (seleaddid) {
+        t.getselectaddress(seleaddid);
+      } else {
+        t.getselectaddress(0);
+      }
     },
     onUnload: function() {
-        s.default.removeEventListener("selectAddress");
+      console.log("执行onUnload");
     },
    
     submitForm: function(e) {
-        var t = this;
-        if (a.default.pushFormId(e.detail.formId), !this.data.prevent) {
-            this.setData({
-                prevent: !0
-            });
-            var s = new Date(), d = {
-                doc_id: this.data.docId,
-                business: this.data.businessId,
+        var t = this;           
+        var s = new Date();
+        let gender="";
+        let alladdress = this.data.addressInfo.address + this.data.addressInfo.detail_info;
+      if (this.data.addressInfo.gender==1){
+           gender="先生";
+          }else{
+          gender = "女士";
+          }
+          let truename = this.data.addressInfo.name+"("+gender+")",
+          d = {
+            doc_id: this.data.thisid,
+            true_name: truename ,
+            mobile: this.data.addressInfo.mobile,
+            address: alladdress,
+            remark: e.detail.value.remark,
+            price: t.data.price,
+            grage: t.data.grage,
+            imgs: t.data.uploadimgurl,
+            openid:wx.getStorageSync('openid')
+        };
+      if (e.detail.value.remark==''){
+          wx.showToast({
+            title: '请输入问题描述',
+          })
+      } else if (alladdress==''){
+        wx.showToast({
+          title: '请选择地址',
+        })
+      } else if (t.data.uploadimgurl == '') {
+        wx.showToast({
+          title: '问题图片最少一张',
+        })
+      } else if (this.data.thisid == '') {
+        wx.showToast({
+          title: '发送未知错误',
+        })
+      }else{
+        console.log(e.detail.formId); 
+        if (!this.data.prevent) {
+          let fid = e.detail.formId;
+          //保存formid用户发送模板消息
+          let fdata={
+              openid:wx.getStorageSync('openid'),
+              form_id:fid
+          }
+          app.http_post('AddFormId',
+            fdata, (ret) => {
+              console.log('已保存formid');
+            })
+          this.setData({
+            prevent: !0
+          });
+          console.log(d);
+          app.http_post('SubmitOrder',
+            d, (ret) => {
+              console.log(ret);
+              wx.showToast({
+                title:  "提交成功",
+                mask: !0
+              }), setTimeout(function () {
+                wx.navigateBack({
+                  delta:1
+                })
+              }, 1e3);
+            })
+        } 
+      }  
             
-                selectAddress: this.data.addressId,
-                num: 1,
-                true_name: this.data.addressInfo.name,
-                mobile: this.data.addressInfo.mobile,
-                address: this.data.addressInfo.address + this.data.addressInfo.detail_info,
-                remark: e.detail.value.remark
-            };
-            a.default.post("submitOrder", d, function(e) {
-                0 == e.data.status ? t.WeChatPay(e.data.number) : t.navigateTap();
-            });
-        }
+        
     },
-    navigateTap: function() {
-        t.default.navigateTo({
-            url: "/pages/order/orderList/orderList"
+    getselectaddress:function(t){
+      let openid='';
+      if(t==0){
+        openid = wx.getStorageSync('openid');
+      }  
+      app.http_get('getoneAdd&id=' + t + '&openid=' + openid, (ret) => {
+        console.log(ret.Data);
+        app.data.addid='';
+        this.setData({
+          addressInfo:ret.Data
         });
+      })
     },
+    linkToTap:function(i){
+      
+      console.log('要跳转');
+      //data-url="/pages/address/addressList/addressList?isSelect=1&id={{thisid}}"
+      wx.navigateTo({
+        url: '/pages/address/addressList/addressList?isSelect=1&id='+this.data.thisid,
+      })
+    }
+    // navigateTap: function() {
+    //   let a=this;
+    //   console.log('传到地址列表的栏目id='+a.data.thisid);
+    //     t.default.navigateTo({
+    //         url: "/pages/order/orderList/orderList?id="+a.data.thisid
+    //     });
+    // },
     
 });
