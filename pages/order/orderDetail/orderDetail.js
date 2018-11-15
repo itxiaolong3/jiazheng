@@ -3,7 +3,7 @@ function t(t) {
         default: t
     };
 }
-
+const app=getApp();
 var e = t(require("../../../utils/util.js")), a = t(require("../../../utils/request.js")), n = t(require("../../../utils/dg.js"));
 
 Page({

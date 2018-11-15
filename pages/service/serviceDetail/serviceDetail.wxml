@@ -1,6 +1,6 @@
 <form bindsubmit="submitForm" reportSubmit="{{true}}">
     <view class="detail-top box-shadow">
-     <view class="addr-title f18 fw black letter">师傅类型</view>
+     <view class="addr-title f18 fw black letter">服务类型</view>
         <view class="top-con box flex a-item j-between">
             <radio-group class="group" bindchange="radioChange">
                     <label class="radio" wx:for="{{infoarr}}" wx:key="index">

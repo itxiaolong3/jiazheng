@@ -65,8 +65,8 @@
 }
 
 .order-list image {
-    width: 40rpx;
-    height: 40rpx;
+    width: 55rpx;
+    height: 55rpx;
     margin-top: 20rpx;
 }
 
@@ -96,7 +96,7 @@
 }
 
 .order-list .list-order-status {
-    margin-top: -10rpx;
+    margin-top: -2rpx;
 }
 
 .user-list {

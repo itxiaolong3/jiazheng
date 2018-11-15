@@ -1,22 +1,22 @@
 <view class="nav">
     <view bindtap="changeMenu" class="flex j-around">
         <view class="order-nav tc {{active==0?'active':''}}" id="0">全部</view>
-        <view class="order-nav tc {{active==1?'active':''}}" id="1">待支付</view>
+        <view class="order-nav tc {{active==1?'active':''}}" id="1">待受理</view>
         <view class="order-nav tc {{active==2?'active':''}}" id="2">服务中</view>
         <view class="order-nav tc {{active==3?'active':''}}" id="3">待评价</view>
-        <view class="order-nav tc {{active==4?'active':''}}" id="4">退款/投诉</view>
+        <view class="order-nav tc {{active==4?'active':''}}" id="4">已完成</view>
     </view>
 </view>
 <view class="nav-space"></view>
 <view bindtap="linkToTap" class="order-list" data-url="/pages/order/orderDetail/orderDetail?id={{item['id']}}" wx:for="{{orderList}}" wx:key="index">
     <view class="order box">
         <view class="status flex j-between a-item">
-            <text class="f15 black fw">{{item.docTitle}}</text>
-            <text class="f14 fw {{item['color']}}">{{item['tip']}}</text>
+            <text class="f15 black fw">{{item.sertype}}</text>
+            <text class="f14 fw red">{{item['state']==1?'待受理':item['state']==2?'服务中':item['state']==3?'待评价':'已完成'}}</text>
         </view>
         <view class="time f13 gray flex">
             <view class="pl">预约时间：</view>
-            <view class="pr">{{item.reserveTime}}</view>
+            <view class="pr">{{item.addtime}}</view>
         </view>
         <view class="location f13 gray flex">
             <view class="pl">预约地点：</view>
@@ -25,6 +25,6 @@
     </view>
 </view>
 <view class="no-order flex a-item" wx:if="{{noData}}">
-    <image mode="aspectFill" src="http://xrs.duoguan.com/2018-10-20_5bcad7ba030ce.png"></image>
+    <image mode="aspectFill" src="../../../images/user/noorder.png"></image>
     <text class="f14 no-order-text">当前类目暂无订单信息</text>
 </view>

@@ -30,7 +30,9 @@ Page({
     },
     onPullDownRefresh: function() {
         var e = this;
+      e.getordercount();
       e.getuserinfo();
+      
     },
     getuserinfo:function(){
       let t = this;
@@ -38,6 +40,7 @@ Page({
         wx.stopPullDownRefresh();
         console.log(ret);
         if (ret.code==1){
+          
           t.setData({
             userInfo: ret.result,
             isShowAuth:!1
@@ -45,8 +48,15 @@ Page({
         }else{
             console.log('没有用户授权');
         }
-          
-        
+      })
+    },
+    getordercount:function(){
+      let t = this;
+      app.http_get('Getordercount&openid=' + wx.getStorageSync('openid'), (ret) => {
+        console.log(ret);
+        t.setData({
+          count: ret.Data
+        })
       })
     },
     onHide:function(){

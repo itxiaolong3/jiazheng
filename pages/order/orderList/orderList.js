@@ -3,7 +3,7 @@ function t(t) {
         default: t
     };
 }
-
+const app = getApp()
 var a = t(require("../../../utils/util.js")), e = t(require("../../../utils/request.js"));
 
 t(require("../../../utils/dg.js"));
@@ -26,24 +26,26 @@ Page({
         this.onPullDownRefresh();
     },
     onPullDownRefresh: function() {
-        var t = this, i = this.data.active || 0, s = {
-            active: i,
-            _p: 1
-        };
-        e.default.post("getOrderListByActive", s, function(e) {
-            var s = a.default.code2status(e.data);
-            t.setData({
-                active: i,
-                orderList: s
-            });
+      let openid=wx.getStorageSync('openid');
+      var t = this, i = this.data.active || 0, s = {
+        active: i,
+        openid:openid,
+        page:1
+      };
+      app.http_post('UserOrder', s, (ret) => {
+        //console.log(ret.Data);
+        t.setData({
+          active: i,
+          orderList: ret.Data
         });
+      }) 
     },
     onReachBottom: function() {
         if (this.data.hasMore) {
             var t = ++this.data.page, a = this.data.active;
             this.setData({
                 page: t
-            }), this.getOrderList(a, t);
+            }), this.getOrderList(a, wx.getStorageSync('openid'), t);
         }
     },
     changeMenu: function(t) {
@@ -53,23 +55,25 @@ Page({
             page: 1,
             noData: !1,
             hasMore: !0
-        }), this.getOrderList(t.target.id, 1);
+        }), this.getOrderList(t.target.id,wx.getStorageSync('openid'), 1);
     },
-    getOrderList: function(t, i) {
-        var s = this, r = {
-            active: t,
-            _p: i
-        }, o = this.data.noData;
-        e.default.post("getOrderListByActive", r, function(t) {
-            if (Array.isArray(t.data) && 0 === t.data.length) 1 == i && (o = !0), s.setData({
-                hasMore: !1,
-                noData: o
-            }); else {
-                var e = a.default.code2status(t.data);
-                s.setData({
-                    orderList: s.data.orderList.concat(e)
-                });
-            }
-        });
+    getOrderList: function(t, openid,i) {
+      var s = this, r = {
+        active: t,
+        openid: openid,
+        page:i
+      }, o = this.data.noData;
+      app.http_post('UserOrder', r, (t) => {
+        console.log(t.Data);
+        if (Array.isArray(t.Data) && 0 === t.Data.length) 1 == i && (o = !0), s.setData({
+          hasMore: !1,
+          noData: o
+        }); else {
+          s.setData({
+            orderList: s.data.orderList.concat(t.Data)
+          });
+        }
+      })
+      
     }
 });

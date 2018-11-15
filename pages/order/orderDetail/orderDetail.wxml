@@ -1,10 +1,3 @@
-<progress-bar stage="{{navStatus}}" wx:if="{{navStatus!=-1}}"></progress-bar>
-<view class="order-refund" wx:if="{{orderInfo.earnest_is_refund==3||orderInfo.is_refund==3}}">
-    <view class="f19 red fw">退款失败</view>
-    <view class="f14 black order-refund-middle">商家拒绝您的退款<text class="ml12">理由：</text>
-    </view>
-    <view class="f14 black">{{orderInfo.refund_remark}}</view>
-</view>
 <view class="order-detail box-shadow">
     <view catchtap="linkToTap" class="detail-status" data-url="/pages/business/businessIndex/businessIndex?bid={{businessInfo['id']}}" wx:if="{{orderInfo['business']!=0}}">
         <view class="order-top box flex a-item">
@@ -99,10 +92,10 @@
 </view>
 <view class="bottom flex a-item">
     <button catchtap="NavigateTap" class="bhui f13 hui bottom-status" data-type="cancel" wx:if="{{orderInfo.allowCancel==1}}">取消订单</button>
-    <button catchtap="NavigateTap" class="bhui f13 hui bottom-status" data-type="complaint" wx:if="{{orderInfo.status==3&&orderInfo.sendstatus==3&&orderInfo.complaint==0}}">投诉</button>
-    <button catchtap="NavigateTap" class="blan f13 white bottom-status" data-type="change" wx:if="{{orderInfo.code=='waitOffer'&&orderInfo.type==0}}">换一家</button>
-    <button catchtap="setOrderComplete" class="blan f13 white bottom-status" wx:if="{{orderInfo.code=='waitService'}}">确认完成</button>
-    <button catchtap="WeChatPay" class="blan f13 white bottom-status" wx:if="{{orderInfo.code=='noPay'}}">去支付</button>
+    <!-- <button catchtap="NavigateTap" class="bhui f13 hui bottom-status" data-type="complaint" wx:if="{{orderInfo.status==3&&orderInfo.sendstatus==3&&orderInfo.complaint==0}}">投诉</button> -->
+    <!-- <button catchtap="NavigateTap" class="blan f13 white bottom-status" data-type="change" wx:if="{{orderInfo.code=='waitOffer'&&orderInfo.type==0}}">换一家</button> -->
+    <!-- <button catchtap="setOrderComplete" class="blan f13 white bottom-status" wx:if="{{orderInfo.code=='waitService'}}">确认完成</button> -->
+    <!-- <button catchtap="WeChatPay" class="blan f13 white bottom-status" wx:if="{{orderInfo.code=='noPay'}}">去支付</button> -->
     <button bindtap="linkToTap" class="blan f13 white bottom-status" data-url="/pages/service/evaluate/evaluate?id={{orderInfo['id']}}" wx:if="{{orderInfo.code=='waitComment'}}">去评价</button>
-    <button bindtap="linkToTap" class="blan f13 white bottom-status" data-url="/pages/service/serviceDetail/serviceDetail?docId={{orderInfo['doc_id']}}" wx:if="{{orderInfo.code=='complete'}}">再来一单</button>
+    <!-- <button bindtap="linkToTap" class="blan f13 white bottom-status" data-url="/pages/service/serviceDetail/serviceDetail?docId={{orderInfo['doc_id']}}" wx:if="{{orderInfo.code=='complete'}}">再来一单</button> -->
 </view>

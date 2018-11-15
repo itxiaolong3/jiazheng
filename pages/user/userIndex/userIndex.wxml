@@ -15,23 +15,23 @@
     <view class="order-list tc flex">
         <view bindtap="linkToTap" class="list-one" data-url="/pages/order/orderList/orderList?id=1">
             <view class="list-img tc">
-                <image mode="aspectFit" src="http://xrs.duoguan.com/2018-10-22_5bcd9bc96fd9c.png"></image>
+                <image mode="aspectFit" src="../../../images/user/nopay.png"></image>
             </view>
-            <text class="list-num f12" wx:if="{{count['unpaid']!=0}}">{{count['unpaid']}}</text>
-            <view class="f11 list-order-status">待支付</view>
+            <text class="list-num f12" wx:if="{{count['wait']!=0}}">{{count['wait']}}</text>
+            <view class="f11 list-order-status">待受理</view>
         </view>
         <view bindtap="linkToTap" class="list-two" data-url="/pages/order/orderList/orderList?id=2">
             <view class="list-img tc">
-                <image mode="aspectFit" src="http://xrs.duoguan.com/2018-10-22_5bcd9b517aad2.png"></image>
+                <image mode="aspectFit" src="../../../images/user/sering.png"></image>
             </view>
-            <text class="list-num f12" wx:if="{{count['unservices']!=0}}">{{count['unservices']}}</text>
+            <text class="list-num f12" wx:if="{{count['sering']!=0}}">{{count['sering']}}</text>
             <view class="f11 list-order-status">服务中</view>
         </view>
         <view bindtap="linkToTap" class="list-three" data-url="/pages/order/orderList/orderList?id=3">
             <view class="list-img tc">
-                <image mode="aspectFit" src="http://xrs.duoguan.com/2018-10-22_5bcd9bdb96465.png"></image>
+                <image mode="aspectFit" src="../../../images/user/pingjia.png"></image>
             </view>
-            <text class="list-num f12 " wx:if="{{count['uncomment']!=0}}">{{count['uncomment']}}</text>
+            <text class="list-num f12 " wx:if="{{count['pingjia']!=0}}">{{count['pingjia']}}</text>
             <view class="f11 list-order-status">待评价</view>
         </view>
     </view>
@@ -39,7 +39,7 @@
 <view class="user-list">
     <view class="con box">
         <view bindtap="linkToTap" class="user-list-content flex j-between a-item" data-url="/pages/address/addressList/addressList">
-            <text class="f16 black fw letter">服务地址</text>
+            <text class="f16 black fw letter">我的地址</text>
             <text class="iconfont icon-fanhui f16 gray fw"></text>
         </view>
         <view bindtap="linkToTap" class="user-list-content flex j-between a-item" data-url="/pages/user/cooperation/cooperation">

@@ -1,7 +1,4 @@
 {
     "navigationBarTitleText": "订单详情",
-    "usingComponents": {
-        "progress-bar": "/pages/component/progressBar/progressBar"
-    },
     "enablePullDownRefresh": true
 }
