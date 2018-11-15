@@ -9,7 +9,6 @@ var e = t(require("../../../utils/util.js")), a = t(require("../../../utils/requ
 Page({
     data: {
         id: 0,
-        navStatus: -1,
         orderInfo: [],
         businessInfo: []
     },
@@ -24,14 +23,15 @@ Page({
     },
     getOrderInfo: function(t) {
         var n = this;
-        a.default.post("getOrderDetailInfo", {
+        app.http_post("getOrderDetail", {
             id: t
         }, function(t) {
-            var a = e.default.transformCode(t.data), o = e.default.code2navStatus(t.data.code), s = a.businessInfo;
+            console.log(t);
+            //  s = a.businessInfo;
             n.setData({
-                orderInfo: a,
-                businessInfo: s || [],
-                navStatus: o
+                orderInfo: t.Data,
+                // businessInfo: s || [],
+              
             });
         });
     },
@@ -60,40 +60,8 @@ Page({
             }
         });
     },
-    WeChatPay: function() {
-        var t = this, e = this;
-        a.default.post("WeChatPay", {
-            trade_no: this.data.orderInfo.number
-        }, function(a) {
-            a.data ? wx.requestPayment(Object.assign(a.data, {
-                success: function(t) {
-                    n.default.showToast({
-                        title: "支付成功",
-                        icon: "success",
-                        mask: !0,
-                        duration: 1e3
-                    });
-                },
-                fail: function(t) {
-                    n.default.showToast({
-                        title: "支付失败",
-                        icon: "none",
-                        mask: !0,
-                        duration: 1e3
-                    });
-                },
-                complete: function(a) {
-                    t.setData({
-                        prevent: !1
-                    }), setTimeout(function() {
-                        e.onPullDownRefresh();
-                    }, 1e3);
-                }
-            })) : e.onPullDownRefresh();
-        });
-    },
     previewImage: function(t) {
-        var e = this.data.orderInfo.commentInfo.image, a = e[t.currentTarget.dataset.index];
+        var e = this.data.orderInfo.imgs, a = e[t.currentTarget.dataset.index];
         n.default.previewImage({
             urls: e,
             current: a

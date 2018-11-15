@@ -1,5 +1,6 @@
 <view class="order-detail box-shadow">
-    <view catchtap="linkToTap" class="detail-status" data-url="/pages/business/businessIndex/businessIndex?bid={{businessInfo['id']}}" wx:if="{{orderInfo['business']!=0}}">
+    <!-- <view catchtap="linkToTap" class="detail-status" data-url="/pages/business/businessIndex/businessIndex?bid={{businessInfo['id']}}" wx:if="{{orderInfo['business']!=0}}"> -->
+        <view catchtap="linkToTap" class="detail-status" data-url="/pages/business/businessIndex/businessIndex?bid={{businessInfo['id']}}" wx:if="{{orderInfo['state']!=1}}">
         <view class="order-top box flex a-item">
             <view class="mer-img">
                 <image mode="scaleToFill" src="{{businessInfo['headimg']}}"></image>
@@ -24,16 +25,16 @@
     <view class="order-con box">
         <image class="order-img" mode="aspectFill" src="http://xrs.duoguan.com/2018-10-15_5bc3f4f12d918.png" wx:if="{{false}}"></image>
         <view class="order-status flex a-item j-between">
-            <view class="black f19 fw letter">{{orderInfo['docTitle']}}</view>
-            <view class="f14 fw letter status {{orderInfo['color']}}">{{orderInfo['tip']}}</view>
+            <view class="black f19 fw letter">{{orderInfo['sertype']}}</view>
+             <text class="f14 fw red">{{orderInfo['state']==1?'待受理':orderInfo['state']==2?'服务中':orderInfo['state']==3?'待评价':'已完成'}}</text>
         </view>
         <view class="order-info flex">
             <view class="hui f13 letter">订单编号：</view>
-            <view class="black f13">{{orderInfo['number']}}</view>
+            <view class="black f13">{{orderInfo['ordernum']}}</view>
         </view>
         <view class="order-info flex">
             <view class="hui f13 letter">预约时间：</view>
-            <view class="black f13">{{orderInfo['reserveTime']}}</view>
+            <view class="black f13">{{orderInfo['addtime']}}</view>
         </view>
         <view class="order-info flex">
             <view class="hui f13 letter">服务地址：</view>
@@ -45,27 +46,29 @@
         </view>
     </view>
     <view class="order-con box order-con-bottom">
-        <view class="order-info flex" wx:if="{{orderInfo['business_price']!=0}}">
-            <view class="hui f13 letter">商家报价：</view>
-            <view class="black f13">{{orderInfo['business_price']}}元</view>
-        </view>
         <view class="order-info flex">
             <view class="hui f13 letter">订金金额：</view>
-            <view class="black f13">{{orderInfo['earnest_order_amount']}}元</view>
-        </view>
-        <view class="order-info flex">
-            <view class="hui f13 letter">下单时间：</view>
-            <view class="black f13">{{orderInfo['createTime']}}</view>
+            <view class="black f13">{{orderInfo['price']}}元</view>
         </view>
         <view class="order-info flex">
             <view class="hui f13 letter">备注信息：</view>
             <view class="black f13">{{orderInfo['remark']?orderInfo['remark']:'您未填写备注信息'}}</view>
         </view>
-        <view class="order-info flex j-between" wx:if="{{false}}">
-            <text class="f11 white beizhu">客厅里玻璃需要擦</text>
-        </view>
     </view>
-    <view class="order-con box order-con-bottom" wx:if="{{orderInfo['commentInfo'].length!=0}}">
+    <view class="order-con box order-con-bottom">
+      <view class="order-info flex">
+            <view class="hui f13 letter">附带图片</view>
+            <view class="black f13 flex a-item">
+                <view catchtap="previewImage" class="order-info-img" data-index="{{index}}" wx:if="{{index<=2}}" wx:for="{{orderInfo.imgs}}" wx:key="index">
+                    <view class="order-info-img-item">
+                        <image mode="aspectFill" src="{{item}}"></image>
+                        <view class="f23 white order-info-img-item-mc flex a-item fw" wx:if="{{index==2}}">+{{orderInfo.imgs.length-3}}</view>
+                    </view>
+                 </view>
+            </view>    
+      </view>
+    </view>
+    <view class="order-con box order-con-bottom" wx:if="{{orderInfo['state']!=1}}">
         <view class="order-info flex">
             <view class="hui f13 letter">评价详情：</view>
             <view class="black f13">{{orderInfo.commentInfo.comment}}</view>
@@ -91,11 +94,11 @@
     </view>
 </view>
 <view class="bottom flex a-item">
-    <button catchtap="NavigateTap" class="bhui f13 hui bottom-status" data-type="cancel" wx:if="{{orderInfo.allowCancel==1}}">取消订单</button>
+    <button catchtap="NavigateTap" class="bhui f13 hui bottom-status" data-type="cancel" wx:if="{{orderInfo['state']==1}}">取消订单</button>
     <!-- <button catchtap="NavigateTap" class="bhui f13 hui bottom-status" data-type="complaint" wx:if="{{orderInfo.status==3&&orderInfo.sendstatus==3&&orderInfo.complaint==0}}">投诉</button> -->
     <!-- <button catchtap="NavigateTap" class="blan f13 white bottom-status" data-type="change" wx:if="{{orderInfo.code=='waitOffer'&&orderInfo.type==0}}">换一家</button> -->
     <!-- <button catchtap="setOrderComplete" class="blan f13 white bottom-status" wx:if="{{orderInfo.code=='waitService'}}">确认完成</button> -->
     <!-- <button catchtap="WeChatPay" class="blan f13 white bottom-status" wx:if="{{orderInfo.code=='noPay'}}">去支付</button> -->
-    <button bindtap="linkToTap" class="blan f13 white bottom-status" data-url="/pages/service/evaluate/evaluate?id={{orderInfo['id']}}" wx:if="{{orderInfo.code=='waitComment'}}">去评价</button>
+    <button bindtap="linkToTap" class="blan f13 white bottom-status" data-url="/pages/service/evaluate/evaluate?id={{orderInfo['id']}}" wx:if="{{orderInfo['state']==3}}">去评价</button>
     <!-- <button bindtap="linkToTap" class="blan f13 white bottom-status" data-url="/pages/service/serviceDetail/serviceDetail?docId={{orderInfo['doc_id']}}" wx:if="{{orderInfo.code=='complete'}}">再来一单</button> -->
 </view>
