@@ -28,6 +28,7 @@ Page({
       allinfo:[],
       price: 0,
       grage: '',
+      bili:0,
       uploadimgurl: '',//图片上传
       uploaded_pic_list: [],
       publisherarticle: [],
@@ -65,6 +66,7 @@ Page({
                 infoarr: info,
                 price: value.price,
                 grage: value.grage,
+                bili:value.bili,
                 allinfo: ret.allinfo
               })
             }
@@ -75,15 +77,17 @@ Page({
   radio: function (e) {
     console.log(e.currentTarget.dataset.id)
     console.log("价格=" + e.currentTarget.dataset.price)
+    console.log("比例=" + e.currentTarget.dataset.bili)
     this.setData({
-      price: e.currentTarget.dataset.price
+      price: e.currentTarget.dataset.price,
+      bili: e.currentTarget.dataset.bili
     });
   },
   //获取用户选择的单选框的值
   radioChange: function (e) {
     console.log('等级=' + e.detail.value)
     this.setData({
-      grage: e.detail.value
+      grage: e.detail.value,
     });
   },
   // 上传图片
@@ -232,9 +236,20 @@ Page({
             remark: e.detail.value.remark,
             price: t.data.price,
             grage: t.data.grage,
+            bili:t.data.bili,
             imgs: t.data.uploadimgurl,
             openid:wx.getStorageSync('openid')
         };
+      let fid = e.detail.formId;
+      //保存formid用户发送模板消息
+      let fdata = {
+        openid: wx.getStorageSync('openid'),
+        form_id: fid
+      }
+      app.http_post('AddFormId',
+        fdata, (ret) => {
+          console.log('已保存formid');
+        })
       if (e.detail.value.remark==''){
           wx.showToast({
             title: '请输入问题描述',
@@ -254,27 +269,22 @@ Page({
       }else{
         console.log(e.detail.formId); 
         if (!this.data.prevent) {
-          let fid = e.detail.formId;
-          //保存formid用户发送模板消息
-          let fdata={
-              openid:wx.getStorageSync('openid'),
-              form_id:fid
-          }
-          app.http_post('AddFormId',
-            fdata, (ret) => {
-              console.log('已保存formid');
-            })
+          wx.showLoading({
+            title: '提交中...',
+          })
           this.setData({
             prevent: !0
           });
           console.log(d);
           app.http_post('SubmitOrder',
             d, (ret) => {
+              wx.hideLoading();
               console.log(ret);
               wx.showToast({
                 title:  "提交成功",
                 mask: !0
               }), setTimeout(function () {
+               
                 wx.navigateBack({
                   delta:1
                 })

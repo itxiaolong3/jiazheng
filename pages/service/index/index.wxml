@@ -99,32 +99,5 @@
     <view class="dixian f12 tc">
         <text wx:if="{{!businessHasMore}}">我是有底线的！！！</text>
     </view>
-    <view catchtouchmove="true" class="quan flex a-item" wx:if="{{false}}">
-        <view class="quan-con">
-            <view class="quan-head flex">
-                <image src="http://xrs.duoguan.com/2018-10-16_5bc548eccd4fa.png"></image>
-            </view>
-            <view class="quan-content">
-                <scroll-view class="quan-scroll" scrollY="true">
-                    <view class="quan-item" wx:for="{{6}}" wx:key="quan">
-                        <image class="quan-item-bcg" mode="aspectFill" src="http://xrs.duoguan.com/2018-10-15_5bc43a4d8606f.png"></image>
-                        <text class="quan-item-name f22 white fw">5.00元代金券</text>
-                        <text class="quan-item-time f10">优惠时间：10.04~10.07</text>
-                        <view class="quan-item-label flex a-item">
-                            <text class="quan-item-txt f12 white fw" wx:for="{{1}}" wx:key="{{lei}}">搬家运输</text>
-                        </view>
-                    </view>
-                </scroll-view>
-            </view>
-            <view class="quan-bottom">
-                <button class="quan-bottom-button tc f16 black fw">
-          立即领取
-        </button>
-                <view class="quan-close tc">
-                    <text class="iconfont icon-22 f24 white"></text>
-                </view>
-            </view>
-        </view>
-    </view>
 </block>
 <user-auth isShow="{{isShowAuth}}"></user-auth>

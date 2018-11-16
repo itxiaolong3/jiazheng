@@ -62,7 +62,7 @@
                 <view catchtap="previewImage" class="order-info-img" data-index="{{index}}" wx:if="{{index<=2}}" wx:for="{{orderInfo.imgs}}" wx:key="index">
                     <view class="order-info-img-item">
                         <image mode="aspectFill" src="{{item}}"></image>
-                        <view class="f23 white order-info-img-item-mc flex a-item fw" wx:if="{{index==2}}">+{{orderInfo.imgs.length-3}}</view>
+                        <!-- <view class="f23 white order-info-img-item-mc flex a-item fw" wx:if="{{index==2}}">+{{orderInfo.imgs.length-3}}</view> -->
                     </view>
                  </view>
             </view>    
@@ -79,7 +79,7 @@
                 <view catchtap="previewImage" class="order-info-img" data-index="{{index}}" wx:if="{{index<=2}}" wx:for="{{orderInfo.commentInfo.image}}" wx:key="index">
                     <view class="order-info-img-item">
                         <image mode="aspectFill" src="{{item}}"></image>
-                        <view class="f23 white order-info-img-item-mc flex a-item fw" wx:if="{{index==2}}">+{{orderInfo.commentInfo.image.length-3}}</view>
+                        <!-- <view class="f23 white order-info-img-item-mc flex a-item fw" wx:if="{{index==2}}">+{{orderInfo.commentInfo.image.length-3}}</view> -->
                     </view>
                 </view>
             </view>
@@ -94,7 +94,8 @@
     </view>
 </view>
 <view class="bottom flex a-item">
-    <button catchtap="NavigateTap" class="bhui f13 hui bottom-status" data-type="cancel" wx:if="{{orderInfo['state']==1}}">取消订单</button>
+    <button catchtap="NavigateTap" class="bhui f13 hui bottom-status" data-type="cancel" wx:if="{{orderInfo['state']==1}}">取消预约</button>
+        <button catchtap="NavigateTap" class="bhui f13 hui bottom-status" data-type="cancel" wx:if="{{orderInfo['state']==2}}">取消订单</button>
     <!-- <button catchtap="NavigateTap" class="bhui f13 hui bottom-status" data-type="complaint" wx:if="{{orderInfo.status==3&&orderInfo.sendstatus==3&&orderInfo.complaint==0}}">投诉</button> -->
     <!-- <button catchtap="NavigateTap" class="blan f13 white bottom-status" data-type="change" wx:if="{{orderInfo.code=='waitOffer'&&orderInfo.type==0}}">换一家</button> -->
     <!-- <button catchtap="setOrderComplete" class="blan f13 white bottom-status" wx:if="{{orderInfo.code=='waitService'}}">确认完成</button> -->

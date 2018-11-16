@@ -16,7 +16,7 @@ Page({
     },
     onShareAppMessage: function() {
         return {
-            title: "附近家政申请商家入驻",
+            title: "师傅入驻",
             path: "/pages/user/cooperation/cooperation"
         };
     },

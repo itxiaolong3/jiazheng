@@ -43,17 +43,21 @@
             <text class="iconfont icon-fanhui f16 gray fw"></text>
         </view>
         <view bindtap="linkToTap" class="user-list-content flex j-between a-item" data-url="/pages/user/cooperation/cooperation">
-            <text class="f16 black fw letter">商家入驻</text>
+            <text class="f16 black fw letter">师傅入驻</text>
             <text class="iconfont icon-fanhui f16 gray fw"></text>
         </view>
         <view bindtap="linkToTap" class="user-list-content flex j-between a-item" data-url="/pages/user/feedback/feedback">
             <text class="f16 black fw letter">问题与反馈</text>
             <text class="iconfont icon-fanhui f16 gray fw"></text>
         </view>
-        <view bindtap="linkToTap" class="user-list-content flex j-between a-item" data-url="/pages/user/authSettings/authSettings">
-            <text class="f16 black fw letter">设置</text>
+        <view class="user-list-content flex j-between a-item">
+        <button class="f16 black fw letter" style="background: transparent;" open-type="contact" session-from="weapp">联系客服</button>
             <text class="iconfont icon-fanhui f16 gray fw"></text>
         </view>
+        <!-- <view bindtap="linkToTap" class="user-list-content flex j-between a-item" data-url="/pages/user/authSettings/authSettings">
+            <text class="f16 black fw letter">设置</text>
+            <text class="iconfont icon-fanhui f16 gray fw"></text>
+        </view> -->
     </view>
 </view>
 <user-auth isShow="{{isShowAuth}}"></user-auth>

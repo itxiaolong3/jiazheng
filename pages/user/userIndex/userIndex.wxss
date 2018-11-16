@@ -15,6 +15,7 @@
     position: absolute;
     top: 58rpx;
     left: 24rpx;
+    
 }
 
 .head-name {

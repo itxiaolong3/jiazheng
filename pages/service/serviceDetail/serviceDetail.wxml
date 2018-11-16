@@ -5,7 +5,7 @@
             <radio-group class="group" bindchange="radioChange">
                     <label class="radio" wx:for="{{infoarr}}" wx:key="index">
                     <view class="attr_value ">
-                      <radio value="{{item.grage}}" color="" bindtap='radio' data-id="{{item.id}}" data-price="{{item.price}}" checked="{{item.checked}}"/><span>{{item.grage}}</span>
+                      <radio value="{{item.grage}}" color="" bindtap='radio' data-id="{{item.id}}" data-price="{{item.price}}" data-bili="{{item.bili}}" checked="{{item.checked}}"/><span>{{item.grage}}</span>
                       </view>
                     </label>
             </radio-group>
