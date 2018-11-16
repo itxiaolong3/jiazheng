@@ -2,7 +2,7 @@
 
     <view class="item flex-row flex-ali">
         <text>身份证</text>
-        <input placeholder="请按旅行社营业执照全称填写" maxlength="30" value="{{IDnum}}" data-id="1" bindinput="input_value" />
+        <input placeholder="请输入身份证号码" maxlength="30" value="{{IDnum}}" data-id="1" bindinput="input_value" />
     </view>
     <view class="item flex-row flex-ali">
         <text>姓名</text>
@@ -26,7 +26,7 @@
   
     <view class="item flex-row">
         <text>出生年月：</text>
-        <picker mode="date" value="{{brdata}}" start="1990-09-01" end="2018-09-01" fields="month" bindchange="bindDateChange" data-id="5">
+        <picker mode="date" value="{{brdata}}" start="1949-09-01" end="2018-09-01" fields="month" bindchange="bindDateChange" data-id="5">
            <view class="item-right">
                 <input class="ellipsis" placeholder="点击选择年月" value="{{brdata}}" disabled />
                 <image src="../../../images/user/more.png" />
@@ -35,11 +35,11 @@
     </view>
     <view class="item flex-col">
         <text>身份证正面照片：(请上传清晰的身份证正面照片)</text>
-        <image src="{{img_0 ? img_0 : '../../../images/user/zheng.png'}}" data-id="6" catchtap="tap_load" /> 
+        <image src="{{img_6 ? img_6 : '../../../images/user/zheng.png'}}" data-id="6" catchtap="tap_load" /> 
     </view>
     <view class="item flex-col">
         <text>身份证反面照片：(请上传清晰的身份证反面照片)</text>
-        <image src="{{img_1 ? img_1 : '../../../images/user/fan.png'}}" data-id="7" catchtap="tap_load" /> 
+        <image src="{{img_7 ? img_7 : '../../../images/user/fan.png'}}" data-id="7" catchtap="tap_load" /> 
     </view>
     <view class="agree">
         <checkbox-group bindchange="change">

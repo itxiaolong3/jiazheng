@@ -59,6 +59,12 @@ Page({
         })
       })
     },
+    waitsh:function(){
+      wx.showToast({
+        title: '等待审核中',
+        image:'../../../images/user/weixiao.png'
+      })
+    },
     onHide:function(){
       console.log('执行onHide');
     }

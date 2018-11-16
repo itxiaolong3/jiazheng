@@ -10,13 +10,14 @@ Page({
     address: '',
     latitude: '',
     longitude: '',
-    img_0: '',
-    img_1: '',
+    img_6: '',
+    img_7: '',
     ver: '获取验证码',
     code: '',
     ccode: '',
     idcard: '',
     checked: true,
+    ispost:!1,//防止多次提交
     brdata: '1990-09',
     IDnum:'',
     name: '',
@@ -25,6 +26,9 @@ Page({
   },
 
   onLoad: function (options) {
+    if(options.isw){
+
+    }
     this.get_type()
   },
 
@@ -50,11 +54,15 @@ Page({
       sizeType: ['original', 'compressed'],
       sourceType: ['album', 'camera'],
       success: (res) => {
+        wx.showLoading({
+          title: '上传中...',
+        })
         wx.uploadFile({
           url: `${app.data.url}Postuploadimg`,
           filePath: res.tempFilePaths[0],
           name: 'file',
           success: (res) => {
+            wx.hideLoading();  
             let name = `img_${event.currentTarget.dataset.id}`
             this.setData({
               [name]: JSON.parse(res.data).data.imgpath
@@ -78,8 +86,8 @@ Page({
     let tel = this.data.tel
     let IDnum = this.data.IDnum
     let brdata = this.data.brdata
-    let img_0 = this.data.img_0
-    let img_1 = this.data.img_1
+    let img_0 = this.data.img_6
+    let img_1 = this.data.img_7
     let goodat = this.data.goodat
     let checked = this.data.checked
     if (!name || !tel || !IDnum || !brdata || !img_0 || !img_1 || !goodat) {
@@ -100,37 +108,51 @@ Page({
         icon: 'none'
       })
     } else {
-      wx.showLoading({
-        title: '正在申请',
-        mask: true
-      })
-      app.http_post('Postshenqing', {
-        openid: wx.getStorageSync('openid'),
-        name: company,
-        tel: tel,
-        IDnum: IDnum,
-        brdata: brdata,
-        s_address: address,
-        idimg1: img_0,
-        idimg2: img_1,
-        goodat: goodat,
-      }, (ret) => {
-        wx.hideLoading()
-        if (ret.status == 1) {
-          wx.showToast({
-            title: '申请成功',
-            mask: true
+      let reg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/
+      if (!reg.test(tel)) {
+        wx.showToast({
+          title: '请输入有效的手机号',
+          icon: 'none'
+        })
+        return
+      } 
+    if(!this.data.ispost){
+       wx.showLoading({
+          title: '正在申请',
+          mask: true
           })
-          setTimeout(() => {
-            wx.navigateBack()
-          }, 1000)
-        } else {
-          wx.showToast({
-            title: '申请失败',
-            icon: 'none'
-          })
-        }
-      })
+      this.setData({
+        ispost: !0
+      });
+      app.http_post('Postsq', {
+          openid: wx.getStorageSync('openid'),
+          name: name,
+          tel: tel,
+          IDnum: IDnum,
+          brdata: brdata,
+          idimg1: img_0,
+          idimg2: img_1,
+          goodat: goodat,
+        }, (ret) => {
+          wx.hideLoading()
+          if (ret.status == 1) {
+            wx.showToast({
+              title: '申请成功',
+              mask: true
+            })
+            setTimeout(() => {
+              wx.navigateBack()
+            }, 1000)
+          } else {
+            wx.showToast({
+              title: '申请失败',
+              icon: 'none'
+            })
+          }
+        })
+      }
+      
+      
     }
   },
 
@@ -157,8 +179,7 @@ Page({
     })
   },
 
-  tap_ver: function (event) {
-    let tel = this.data.tel
+  tap_ver: function (tel) {
     let ver = this.data.ver
     let reg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/
     if (!reg.test(tel)) {
