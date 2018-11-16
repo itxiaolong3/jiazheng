@@ -1,69 +1,71 @@
 {
-    "pages": [
-        "pages/service/index/index",
-        "pages/service/cancel/cancel",
-        "pages/service/evaluate/evaluate",
-        "pages/service/protocol/protocol",
-        "pages/service/ranking/ranking",
-        "pages/service/search/search",
-        "pages/service/serviceDetail/serviceDetail",
-        "pages/service/serviceList/serviceList",
-        "pages/service/platformInfo/platformInfo",
-        "pages/address/addressEdit/addressEdit",
-        "pages/address/addressList/addressList",
-        "pages/business/businessIndex/businessIndex",
-        "pages/discover/discoverIndex/discoverIndex",
-        "pages/discover/evaluateDetail/evaluateDetail",
-        "pages/discover/servicesDiscover/servicesDiscover",
-        "pages/order/orderDetail/orderDetail",
-        "pages/order/orderList/orderList",
-        "pages/message/messageIndex/messageIndex",
-        "pages/message/officialNotice/officialNotice",
-        "pages/message/myEvaluate/myEvaluate",
-        "pages/message/noticeDetail/noticeDetail",
-        "pages/user/bindTel/bindTel",
-        "pages/user/cooperation/cooperation",
-        "pages/user/feedback/feedback",
-        "pages/user/userIndex/userIndex",
-        "pages/user/userInfo/userInfo",
-        "pages/user/authUserInfo/authUserInfo",
-        "pages/user/authSettings/authSettings",
-        "pages/user/vouchers/vouchers"
-    ],
-    "window": {
-        "backgroundTextStyle": "dark",
-        "navigationBarBackgroundColor": "#fff",
-        "navigationBarTitleText": "武穴家政",
-        "navigationBarTextStyle": "black"
-    },
-    "tabBar": {
-        "color": "#969CA8",
-        "selectedColor": "#009BFF",
-        "list": [
-            {
-                "pagePath": "pages/service/index/index",
-                "text": "家政",
-                "iconPath": "images/icon/index.png",
-                "selectedIconPath": "images/icon/index_c.png"
-            },
-            {
-                "pagePath": "pages/discover/discoverIndex/discoverIndex",
-                "text": "同城",
-                "iconPath": "images/icon/find.png",
-                "selectedIconPath": "images/icon/find_c.png"
-            },
-            {
-                "pagePath": "pages/message/messageIndex/messageIndex",
-                "text": "商家",
-                "iconPath": "images/icon/mes.png",
-                "selectedIconPath": "images/icon/mes_c.png"
-            },
-            {
-                "pagePath": "pages/user/userIndex/userIndex",
-                "text": "我的",
-                "iconPath": "images/icon/user.png",
-                "selectedIconPath": "images/icon/user_c.png"
-            }
-        ]
-    }
+  "pages": [
+    "pages/service/index/index",
+    "pages/service/cancel/cancel",
+    "pages/service/evaluate/evaluate",
+    "pages/service/protocol/protocol",
+    "pages/service/ranking/ranking",
+    "pages/service/search/search",
+    "pages/service/serviceDetail/serviceDetail",
+    "pages/service/serviceList/serviceList",
+    "pages/service/platformInfo/platformInfo",
+    "pages/address/addressEdit/addressEdit",
+    "pages/address/addressList/addressList",
+    "pages/business/businessIndex/businessIndex",
+    "pages/discover/discoverIndex/discoverIndex",
+    "pages/discover/evaluateDetail/evaluateDetail",
+    "pages/discover/servicesDiscover/servicesDiscover",
+    "pages/order/orderDetail/orderDetail",
+    "pages/order/orderList/orderList",
+    "pages/message/messageIndex/messageIndex",
+    "pages/message/officialNotice/officialNotice",
+    "pages/message/myEvaluate/myEvaluate",
+    "pages/message/noticeDetail/noticeDetail",
+    "pages/user/bindTel/bindTel",
+    "pages/user/cooperation/cooperation",
+    "pages/user/feedback/feedback",
+    "pages/user/userIndex/userIndex",
+    "pages/user/userInfo/userInfo",
+    "pages/user/authUserInfo/authUserInfo",
+    "pages/user/authSettings/authSettings",
+    "pages/user/vouchers/vouchers",
+    "pages/user/enter/enter",
+    "pages/user/agree/agree"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "武穴家政",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#969CA8",
+    "selectedColor": "#009BFF",
+    "list": [
+      {
+        "pagePath": "pages/service/index/index",
+        "text": "家政",
+        "iconPath": "images/icon/index.png",
+        "selectedIconPath": "images/icon/index_c.png"
+      },
+      {
+        "pagePath": "pages/discover/discoverIndex/discoverIndex",
+        "text": "同城",
+        "iconPath": "images/icon/find.png",
+        "selectedIconPath": "images/icon/find_c.png"
+      },
+      {
+        "pagePath": "pages/message/messageIndex/messageIndex",
+        "text": "商家",
+        "iconPath": "images/icon/mes.png",
+        "selectedIconPath": "images/icon/mes_c.png"
+      },
+      {
+        "pagePath": "pages/user/userIndex/userIndex",
+        "text": "我的",
+        "iconPath": "images/icon/user.png",
+        "selectedIconPath": "images/icon/user_c.png"
+      }
+    ]
+  }
 }

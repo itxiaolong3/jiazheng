@@ -42,7 +42,7 @@
             <text class="f16 black fw letter">我的地址</text>
             <text class="iconfont icon-fanhui f16 gray fw"></text>
         </view>
-        <view bindtap="linkToTap" class="user-list-content flex j-between a-item" data-url="/pages/user/cooperation/cooperation">
+        <view bindtap="linkToTap" class="user-list-content flex j-between a-item" data-url="/pages/user/enter/enter">
             <text class="f16 black fw letter">师傅入驻</text>
             <text class="iconfont icon-fanhui f16 gray fw"></text>
         </view>
