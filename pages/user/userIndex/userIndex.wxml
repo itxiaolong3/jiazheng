@@ -56,10 +56,14 @@
             <text class="f16 black fw letter">去接单</text>
             <text class="iconfont icon-fanhui f16 gray fw"></text>
         </view>
-        <view bindtap="linkToTap" class="user-list-content flex j-between a-item" data-url="/pages/user/feedback/feedback">
-            <text class="f16 black fw letter">问题与反馈</text>
+        <view bindtap="linkToTap" wx:if="{{userInfo['state']>0}}"  class="user-list-content flex j-between a-item" data-url="/pages/user/enter/enter">
+            <text class="f16 black fw letter">我的资质</text>
             <text class="iconfont icon-fanhui f16 gray fw"></text>
         </view>
+        <!-- <view bindtap="linkToTap" class="user-list-content flex j-between a-item" data-url="/pages/user/feedback/feedback">
+            <text class="f16 black fw letter">问题与反馈</text>
+            <text class="iconfont icon-fanhui f16 gray fw"></text>
+        </view> -->
         <view class="user-list-content flex j-between a-item">
         <button class="f16 black fw letter" style="background: transparent;" open-type="contact" session-from="weapp">联系客服</button>
             <text class="iconfont icon-fanhui f16 gray fw"></text>

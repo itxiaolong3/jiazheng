@@ -22,13 +22,17 @@ Page({
     IDnum:'',
     name: '',
     tel: '',
-    goodat:''
+    goodat:'',
+    resfuinfo:'',
+    state:0,
+    sfid:0
   },
 
   onLoad: function (options) {
     if(options.isw){
 
     }
+    this.getinfo();
     this.get_type()
   },
 
@@ -90,6 +94,7 @@ Page({
     let img_1 = this.data.img_7
     let goodat = this.data.goodat
     let checked = this.data.checked
+    let sfid=this.data.sfid
     if (!name || !tel || !IDnum || !brdata || !img_0 || !img_1 || !goodat) {
       wx.showToast({
         title: '请把信息填写完整',
@@ -133,6 +138,7 @@ Page({
           idimg1: img_0,
           idimg2: img_1,
           goodat: goodat,
+          sfid:sfid
         }, (ret) => {
           wx.hideLoading()
           if (ret.status == 1) {
@@ -226,6 +232,24 @@ Page({
   tap_agree: function (event) {
     wx.navigateTo({
       url: '/pages/user/agree/agree'
+    })
+  },
+  getinfo:function(){
+    app.http_get("Getsfinfo&openid="+wx.getStorageSync('openid'), (ret) => {
+      this.setData({
+        IDnum: ret.Data.IDnum,
+        name:ret.Data.name,
+        tel:ret.Data.tel,
+        goodat:ret.Data.goodat,
+        brdata:ret.Data.brdata,
+        img_6:ret.Data.idimg1,
+        img_7:ret.Data.idimg2,
+        resfuinfo:ret.Data.resfu,
+        state: ret.Data.state,
+        sfid:ret.Data.sfid
+
+      })
+      console.log(ret);
     })
   }
 

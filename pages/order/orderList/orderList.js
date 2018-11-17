@@ -33,19 +33,27 @@ Page({
         page:1
       };
       app.http_post('UserOrder', s, (ret) => {
+        wx.stopPullDownRefresh();
         //console.log(ret.Data);
         t.setData({
           active: i,
-          orderList: ret.Data
+          orderList: ret.Data,
+          page:1,
+          hasMore: !0,
         });
       }) 
     },
     onReachBottom: function() {
         if (this.data.hasMore) {
             var t = ++this.data.page, a = this.data.active;
+            
             this.setData({
                 page: t
-            }), this.getOrderList(a, wx.getStorageSync('openid'), t);
+            }),
+             wx.showLoading({
+               title: '加载中...',
+             }) 
+             this.getOrderList(a, wx.getStorageSync('openid'), t);
         }
     },
     changeMenu: function(t) {
@@ -62,13 +70,23 @@ Page({
         active: t,
         openid: openid,
         page:i
-      }, o = this.data.noData;
+      }, o = this.data.noData; console.log('页码数' + i);
       app.http_post('UserOrder', r, (t) => {
-        console.log(t.Data);
-        if (Array.isArray(t.Data) && 0 === t.Data.length) 1 == i && (o = !0), s.setData({
+        console.log(t);
+        wx.hideLoading();
+        if (Array.isArray(t.Data) && 0 === t.Data.length) 1 == i && (o = !0),
+         s.setData({
           hasMore: !1,
           noData: o
-        }); else {
+        }),
+          wx.showToast({
+            title: '无更多数据',
+          image:'../../../images/user/weixiao.png'
+          }),
+        setTimeout(function(){
+            wx.hideToast();
+        },500);
+        else {
           s.setData({
             orderList: s.data.orderList.concat(t.Data)
           });

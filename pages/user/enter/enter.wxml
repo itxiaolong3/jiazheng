@@ -48,7 +48,13 @@
         <text>我已认真阅读并完全同意</text>
         <text style="color: #26abd6;" catchtap="tap_agree">《入驻协议》</text>
     </view>
+    <view class="item flex-col" wx:if="{{state==3}}">
+    <text>不通过理由：</text>
+     <text style="color:red;marign-left:10rpx;">{{resfuinfo}}</text>
+    </view>
+   
     <view class="btn-container">
-        <view class="btn" catchtap="tap_btn">提交申请</view>
+        <view class="btn" catchtap="tap_btn"  wx:if="{{state==0}}">提交申请</view>
+         <view class="btn" catchtap="tap_btn" wx:if="{{state==3}}">重新申请</view>
     </view>
 </view>
