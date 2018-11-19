@@ -256,7 +256,7 @@
 }
 
 .mer-name,.mer-con {
-    margin-bottom: 8rpx;
+    margin-bottom: 28rpx;
     max-width: 480rpx;
     overflow: hidden;
     white-space: nowrap;
@@ -265,6 +265,7 @@
 
 .mer-width {
     width: 100%;
+    line-height: 25px;
 }
 
 .mer-dis {

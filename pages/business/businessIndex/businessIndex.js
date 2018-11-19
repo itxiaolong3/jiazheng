@@ -3,7 +3,7 @@ function t(t) {
         default: t
     };
 }
-
+const app = getApp()
 t(require("../../../utils/util.js"));
 
 var e = t(require("../../../utils/request.js")), a = t(require("../../../utils/dg.js"));
@@ -129,19 +129,20 @@ Page({
     },
     getBusinessInfo: function() {
         var t = this;
-        e.default.post("getBusinessInfo", {
-            businessId: this.data.businessId,
-            getBusinessServer: 0 == this.data.isShare ? 1 : 0
-        }, function(e) {
-            var a = t.data.navigationBar;
-            "1" == e.data.arbitrarily_uesr_can && (a[0].show = !0, a[0].active = "active", a[1].active = "");
-            var s = parseFloat(e.data.rate);
-            t.setData({
-                navigationBar: a,
-                businessInfo: e.data,
-                rate: s
-            });
-        });
+        app.http_post('Getonesell',{
+          id: this.data.businessId,
+        },(e)=>{
+          console.log(e.Data);
+          var a = t.data.navigationBar;
+          a[1].active = "active", a[0].active = "";
+          var s = 0;
+          t.setData({
+            navigationBar: a,
+            businessInfo: e.Data,
+            rate: s
+          });
+        })
+        
     },
     getCommentList: function() {
         var t = this;
@@ -174,7 +175,7 @@ Page({
     },
     onPriviewImage: function(t) {
         var e = t.currentTarget.dataset.imagetype, s = t.currentTarget.dataset.index, n = [];
-        n = 1 == e ? this.data.commentList[t.currentTarget.dataset.commentindex].image : 2 == e ? this.data.businessInfo.businessImg : 3 == e ? [ this.data.businessInfo.businessphoto ] : [ this.data.businessInfo.businesshead ], 
+      n = 1 == e ? this.data.commentList[t.currentTarget.dataset.commentindex].image : 2 == e ? this.data.businessInfo.otherimg : 3 == e ? [this.data.businessInfo.mengimg] : [this.data.businessInfo.mengimg ], 
         this.setData({
             isPreviewImage: !0
         }), a.default.previewImage({

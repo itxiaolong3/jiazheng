@@ -30,7 +30,8 @@
     "pages/user/authSettings/authSettings",
     "pages/user/vouchers/vouchers",
     "pages/user/enter/enter",
-    "pages/user/agree/agree"
+    "pages/user/agree/agree",
+    "pages/stores/storesindex/storesindex"
   ],
   "window": {
     "backgroundTextStyle": "dark",
@@ -55,7 +56,7 @@
         "selectedIconPath": "images/icon/find_c.png"
       },
       {
-        "pagePath": "pages/message/messageIndex/messageIndex",
+        "pagePath": "pages/stores/storesindex/storesindex",
         "text": "商家",
         "iconPath": "images/icon/mes.png",
         "selectedIconPath": "images/icon/mes_c.png"

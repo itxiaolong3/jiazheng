@@ -26,6 +26,7 @@ Page({
     onShow: function() {
         //this.getLocation(),
          this.getOrderList();
+      this.getselllist();
       this.setData({
         isShowAuth: wx.getStorageSync('openid')?!1:!0
         })
@@ -89,7 +90,7 @@ Page({
       })
       
     },
-    getnavigate:function(){
+  getnavigate: function () {//GetsellList
       let t = this;
       app.http_get('Gettype', (ret) => {
        /// console.log(ret);
@@ -100,7 +101,16 @@ Page({
         }
       })
     },
-
+  //获取商家列表
+  getselllist: function () {//GetsellList
+    let t = this;
+    app.http_get('GetsellList', (ret) => {
+      console.log(ret);
+      t.setData({
+        businessInfo:ret.Data
+      })
+    })
+  },
     code2Address: function(t, e) {
         var a = this;
         i.default.post("code2Address", {

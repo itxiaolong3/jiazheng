@@ -3,7 +3,7 @@ function t(t) {
         default: t
     };
 }
-
+const app=getApp()
 var e = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(t) {
     return typeof t;
 } : function(t) {
@@ -28,9 +28,11 @@ Page({
         isLoading: !1
     },
     onLoad: function(t) {
-       // this.getLocation(), this.getCategoryList();
+       // this.getLocation(),
+      
     },
     onShow: function() {
+      this.getCategoryList();
         this.data.isPreviewImage ? this.setData({
             isPreviewImage: !1
         }) : this.onPullDownRefresh();
@@ -46,23 +48,14 @@ Page({
     onReachBottom: function() {
         this.getDiscoverList();
     },
-    getLocation: function() {
-        var t = this, a = o.default.getStorageSync("addressInfo");
-        "object" != (void 0 === a ? "undefined" : e(a)) || "undefined" == a.latitude || void 0 == a.latitude ? i.default.getLocation().then(function(e) {
-            t.setData({
-                latitude: e.latitude,
-                longitude: e.longitude
-            }), t.getDiscoverList();
-        }) : (this.setData({
-            latitude: a.latitude,
-            longitude: a.longitude
-        }), this.getDiscoverList());
-    },
+    
     getCategoryList: function() {
+      //获取导航分类
         var t = this;
-        a.default.get("getDiscoverCategoryInfo", {}, function(e) {
+      app.http_get("GetTCtype", (e)=> {
+       // console.log(e);
             t.setData({
-                categoryList: t.data.categoryList.concat(e.data)
+              categoryList: t.data.categoryList.concat(e.result)
             });
         });
     },
@@ -79,13 +72,14 @@ Page({
     },
     getDiscoverList: function() {
         var t = this;
-        0 != this.data.latitude && this.data.hasMore && a.default.post("getDiscoverList", {
-            latitude: this.data.latitude,
-            longitude: this.data.longitude,
-            mainDocId: this.data.categoryList[this.data.currentCategory].id,
+      
+      let id = this.data.categoryList[this.data.currentCategory].tid ? this.data.categoryList[this.data.currentCategory].tid:0
+      this.data.hasMore && app.http_post("Getonetype", {
+        mainDocId: id,
             _p: this.data.currentPage + 1
-        }, function(e) {
-            var i = e.data.length > 0, a = t.data.discoverList.concat(e.data);
+        }, (e)=> {
+          console.log(e);
+          var i = e.Data.length > 0, a = t.data.discoverList.concat(e.Data);
             t.setData({
                 isLoading: !1,
                 discoverList: a,

@@ -38,60 +38,23 @@
         <image bindtap="linkToTap" data-url="/pages/service/platformInfo/platformInfo" mode="aspectFill" src="{{configInfo['platformCover']}}"></image>
         <image bindtap="linkToTap" data-url="/pages/service/serviceList/serviceList?id=0" mode="aspectFill" src="{{configInfo['allServiceCover']}}"></image> -->
    
-    <view class="content">
-        <view catchtap="linkToTap" class="order" data-url="/pages/order/orderDetail/orderDetail?id={{item['id']}}" wx:for="{{orderList}}" wx:key="index">
-            <view class="title flex a-item j-between">
-                <text class="f18 black fw2">{{item.docTitle}}</text>
-                <text class="f16 fw {{item['color']}}">{{item['tip']}}<text class="iconfont icon-fanhui fw f15"></text>
-                </text>
-            </view>
-            <view class="br"></view>
-            <view class="mer" wx:if="{{item.businessInfo}}">
-                <view class="f17 mer-name">{{item.businessInfo.title}}</view>
-                <view class="eval f14 black flex a-item">综合评分:
-            <view class="sky-blue ml6">{{item.businessInfo.rate}}</view>
-                    <view class="ml12">已服务{{item.businessInfo.order_count}}单</view>
-                </view>
-            </view>
-            <view class="mer" wx:else>
-        正在为您匹配商家
-      </view>
-        </view>
-        <view class="order box" wx:if="{{false}}">
-            <view class="title flex j-between a-item">
-                <text class="f18 black fw">最近浏览店铺</text>
-                <text class="f11 hui">距离3.2KM</text>
-            </view>
-            <view class="br"></view>
-            <view bindtap="onNavigateTap" class="mer flex a-item" data-url="/pages/discover/">
-                <image class="no-order-img" mode="aspectFill" src="http://xrs.duoguan.com/2018-10-15_5bc3ed0429b6a.png"></image>
-                <view class="no-order-mer">
-                    <view class="f17 mer-name">郑州天天家政（郑东新区店）</view>
-                    <view class="eval f14 black flex a-item">综合评分:
-            <view class="sky-blue ml6">5.0</view>
-                        <view class="ml12">已服务3245单</view>
-                    </view>
-                </view>
-            </view>
-        </view>
-    </view>
     <compoent-message></compoent-message>
     <view class="container">
         <image bindtap="linkToTap" class="ranking-img" data-type="switchTab" data-url="/pages/discover/discoverIndex/discoverIndex" mode="aspectFill" src="http://xrs.duoguan.com/2018-10-23_5bcec14e5a6c7.png"></image>
         <view class="container-rank">
             <view bindtap="linkToTap" class="rank-list" data-url="/pages/business/businessIndex/businessIndex?bid={{item['id']}}" wx:for="{{businessInfo}}" wx:key="index">
                 <view class="image">
-                    <image mode="aspectFill" src="{{item['headimg']}}"></image>
-                    <view class="image-txt white tc">限时推广</view>
+                    <image mode="aspectFill" src="{{item['s_img']}}"></image>
+                    <!-- <view class="image-txt white tc">人气商家</view> -->
                 </view>
                 <view class="mer-width">
-                    <view class="mer-name f15 black letter fw ">{{item['title']}}</view>
-                    <view class="mer-con f12 hui ">{{item['description']?item['description']:'附近家政商家'}} </view>
-                    <view class="mer-dis f11 black flex j-between">
+                    <view class="mer-name f15 black letter fw ">{{item['s_name']}}</view>
+                    <view class="mer-con f12 hui ">{{item['s_desc']?item['s_desc']:'武穴家政商家'}} </view>
+                    <!-- <view class="mer-dis f11 black flex j-between">
                         <view>综合评分:
               <text class="f13 sky-blue mr6 fw">{{item['score']}}</text> 已服务:<text>{{item['order_count']}}</text>单</view>
                         <view class="hui">距离{{item['distance']}}km</view>
-                    </view>
+                    </view> -->
                 </view>
             </view>
         </view>
