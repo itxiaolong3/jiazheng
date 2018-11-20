@@ -54,9 +54,13 @@ Page({
         var t = this;
       app.http_get("GetTCtype", (e)=> {
        // console.log(e);
-            t.setData({
-              categoryList: t.data.categoryList.concat(e.result)
-            });
+        console.log('长度'+t.data.categoryList.length);
+        if (t.data.categoryList.length==1){
+          t.setData({
+            categoryList: t.data.categoryList.concat(e.result)
+          });
+         } 
+           
         });
     },
     changeCheckCategory: function(t) {
@@ -72,13 +76,15 @@ Page({
     },
     getDiscoverList: function() {
         var t = this;
-      
+      wx.showLoading({
+        title: '加载中...',
+      })
       let id = this.data.categoryList[this.data.currentCategory].tid ? this.data.categoryList[this.data.currentCategory].tid:0
       this.data.hasMore && app.http_post("Getonetype", {
         mainDocId: id,
             _p: this.data.currentPage + 1
         }, (e)=> {
-          console.log(e);
+          wx.hideLoading();
           var i = e.Data.length > 0, a = t.data.discoverList.concat(e.Data);
             t.setData({
                 isLoading: !1,
@@ -87,6 +93,7 @@ Page({
                 currentPage: t.data.currentPage + 1
             });
         });
+      !this.data.hasMore&&wx.hideLoading();
     },
     previewImage: function(t) {
         this.setData({

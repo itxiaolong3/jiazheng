@@ -26,28 +26,10 @@ Page({
             businesshead: "http://xrs.duoguan.com/store_default_top_img.png",
             businessServer: []
         },
-        navigationBar: [ {
-            title: "服务",
-            show: !1,
-            active: "",
-            hasSubmenu: !1,
-            subscript: 0
-        }, {
-            title: "评价",
-            show: !0,
-            active: "active",
-            hasSubmenu: !0,
-            subscript: 1
-        }, {
-            title: "活动",
-            show: !1,
-            active: "",
-            hasSubmenu: !1,
-            subscript: 2
-        }, {
+        navigationBar: [  {
             title: "商家",
             show: !0,
-            active: "",
+          active: "active",
             hasSubmenu: !1,
             subscript: 3
         } ],
@@ -105,17 +87,17 @@ Page({
             commentList: [],
             currentCommentPage: 0,
             isloading: !0
-        }), this.getCommentList(), a.default.stopPullDownRefresh();
+        }), a.default.stopPullDownRefresh();
     },
     onReachBottom: function() {
         "active" == this.data.navigationBar[1].active && this.getCommentList();
     },
-    changeNavigationBar: function(t) {
-        for (var e = t.currentTarget.dataset.index, a = this.data.navigationBar, s = 0; s < a.length; s++) a[s].active = "";
-        a[e].active = "active", this.setData({
-            navigationBar: a
-        });
-    },
+    // changeNavigationBar: function(t) {
+    //     for (var e = t.currentTarget.dataset.index, a = this.data.navigationBar, s = 0; s < a.length; s++) a[s].active = "";
+    //     a[e].active = "active", this.setData({
+    //         navigationBar: a
+    //     });
+    // },
     onCatchTip: function(t) {
         for (var e = t.currentTarget.dataset.index, a = this.data.commentTips, s = 0; s < a.length; s++) a[s].active = s == e ? "active" : "";
         this.setData({
@@ -125,7 +107,8 @@ Page({
             commentList: [],
             currentCommentPage: 0,
             isloading: !0
-        }), this.getCommentList();
+        });
+        //this.getCommentList()
     },
     getBusinessInfo: function() {
         var t = this;
@@ -134,7 +117,7 @@ Page({
         },(e)=>{
           console.log(e.Data);
           var a = t.data.navigationBar;
-          a[1].active = "active", a[0].active = "";
+          a[0].active = "active";
           var s = 0;
           t.setData({
             navigationBar: a,

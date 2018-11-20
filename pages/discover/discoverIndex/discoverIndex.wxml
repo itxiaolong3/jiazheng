@@ -17,7 +17,7 @@
         </scroll-view>
     </view>
     <view class="discover-list" wx:if="{{discoverList.length>0}}">
-        <view catchtap="linkToTap" class="discover-item" data-url="/pages/discover/evaluateDetail/evaluateDetail?orderid={{item.orderid}}" wx:for="{{discoverList}}" wx:key="index">
+        <view catchtap="linkToTap" class="discover-item" data-url="/pages/service/serviceDetail/serviceDetail?docId={{item['sid']}}" wx:for="{{discoverList}}" wx:key="index">
             <view class="discover-item-title flex j-between a-item">
                 <!-- <view class="flex">
                     <image src="{{item.anonymous=='0'?item.avatar:'https://www.ixiaochengxu.cc/temp_pic/people_fill.png'}}"></image>
@@ -53,7 +53,7 @@
             <!-- <view class="discover-item-hf f14 black" wx:if="{{false}}">
                 <text class="sky-blue">商家回复：</text>很高心为您服务
         </view> -->
-            <view catchtap="linkToTap" class="discover-item-mer flex a-item j-between" data-url="/pages/business/businessIndex/businessIndex?bid={{item.businessId}}&isshare=1">
+            <view catchtap="linkToTap" class="discover-item-mer flex a-item j-between" data-url="/pages/service/serviceDetail/serviceDetail?docId={{item['sid']}}">
                 <view class="flex a-item">
                     <image class="discover-item-mer-img" mode="aspectFill" src="{{item.img}}"></image>
                     <view>
@@ -65,7 +65,7 @@
                         </view>
                     </view>
                 </view>
-                <view class="discover-item-mer-go f11 white tc">进店看看</view>
+                <view class="discover-item-mer-go f11 white tc">我要预约</view>
             </view>
         </view>
     </view>

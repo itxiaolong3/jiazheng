@@ -33,7 +33,7 @@
         <text class="f13" wx:if="{{item.hasSubmenu}}">{{commentTips[0].count}}</text>
         </view>
     </view>
-    <view class="server" wx:if="{{navigationBar[0].active=='active'}}">
+    <!-- <view class="server" wx:if="{{navigationBar[0].active=='active'}}">
         <view class="server-list" wx:for="{{businessInfo.businessServer}}" wx:key="index">
             <view class="server-list-title f16 fw black">{{item.title}}</view>
             <view class="server-list-con flex">
@@ -51,7 +51,7 @@
             <image class="search-right" mode="aspectFit" src="/images/find/more.png"></image>
         </view>
     </view>
-    <view class="eval" wx:if="{{navigationBar[1].active=='active'}}">
+    <view class="eval" wx:if="{{navigationBar[0].active=='active'}}">
         <view class="eval-head flex a-item">
             <view class="sky-blue eval-head-num ">{{businessInfo.rate}}<text class="f20 fw">分</text>
             </view>
@@ -118,9 +118,9 @@
         <view class="act-con">
             <image class="act-img" mode="aspectFill" src="/images/find/act2.png"></image>
         </view>
-    </view>
+    </view> -->
     <!-- 商家信息部分 -->
-    <view class="merchant" wx:if="{{navigationBar[3].active=='active'}}">
+    <view class="merchant" wx:if="{{navigationBar[0].active=='active'}}">
         <view class="merchant-item">
             <view class="merchant-item-title f16 black fw">商家介绍</view>
             <view class="merchant-item-con black f13">{{businessInfo.s_desc.length==0?'无':businessInfo.s_desc}}</view>
