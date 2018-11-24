@@ -31,7 +31,8 @@
     "pages/user/vouchers/vouchers",
     "pages/user/enter/enter",
     "pages/user/agree/agree",
-    "pages/stores/storesindex/storesindex"
+    "pages/stores/storesindex/storesindex",
+    "pages/user/getorder/getorder"
   ],
   "window": {
     "backgroundTextStyle": "dark",

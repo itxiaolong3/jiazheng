@@ -1,0 +1,16 @@
+ <view wx:for="{{storeslist}}" wx:key="index">
+    <view catchtap="linkToTap" class="discover-item-mer flex a-item j-between" data-url="/pages/business/businessIndex/businessIndex?bid={{item.id}}&isshare=1">
+                  <view class="flex a-item">
+                      <image class="discover-item-mer-img" mode="aspectFill" src="{{item.mengimg}}"></image>
+                      <view>
+                          <view class="discover-item-mer-name f15 black">{{item.s_name}}</view>
+                          <view class="f11 black">
+                              <!-- <text class="discover-item-mer-text">综合评分:<text class="f13 sky-blue fw">{{item.rate}}</text>
+                              </text> -->
+                              <text class="discover-item-mer-text mer-con f12 hui">{{item.s_desc}}</text>
+                          </view>
+                      </view>
+                  </view>
+                  <view class="discover-item-mer-go f11 white tc">进店看看</view>
+    </view>
+</view>

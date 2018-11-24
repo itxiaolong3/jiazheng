@@ -59,6 +59,11 @@ Page({
         })
       })
     },
+    seeorder:function(){
+      wx.navigateTo({
+        url: '/pages/user/getorder/getorder',
+      }) 
+    },
     waitsh:function(){
       wx.showToast({
         title: '等待审核中',

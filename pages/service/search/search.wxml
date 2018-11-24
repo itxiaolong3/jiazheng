@@ -1,16 +1,16 @@
 <view class="search-head flex">
-    <view bindtap="showOption" class="search-head-label f14 black">{{searchOption}}
+    <!-- <view bindtap="showOption" class="search-head-label f14 black">{{searchOption}}
     <text class="iconfont  black f10 fw {{searchTip?'icon-53':'icon-54'}}"></text>
         <view class="search-head-label-show" wx:if="{{searchTip}}">
             <view bindtap="changeOption" class="tc search-head-label-con f14 hui" data-option-id="1">服务</view>
             <view bindtap="changeOption" class="tc search-head-label-con f14 hui" data-option-id="0">店铺</view>
         </view>
-    </view>
+    </view> -->
     <form bindsubmit="submitSearch" reportSubmit="{{true}}">
         <view class="flex a-item">
             <view class="head-left flex a-item">
                 <text class="iconfont icon-search black f16"></text>
-                <input bindfocus="inputFocus" class="head-input f14 hui" name="content" placeholder="搜索服务/店铺" type="text"></input>
+                <input bindfocus="inputFocus" class="head-input f14 hui" name="content" placeholder="搜索服务" type="text"></input>
             </view>
             <button class="head-button f14 white" formType="submit">搜索</button>
         </view>
@@ -18,9 +18,9 @@
 </view>
 <view class="search-con">
     <view class="search-before">
-        <view class="search-title f14 black fw">{{isSearch?'搜索结果':'热门搜索'}}</view>
+        <view class="search-title f14 black fw">{{isSearch?'搜索结果':'输入关键字'}}</view>
         <view class="search-list flex a-item" wx:if="{{!isSearch}}">
-            <view bindtap="NavigateTap" class="f13 hui search-list-left" data-id="{{item['id']}}" wx:for="{{displaySearchInfo}}" wx:key="{{index}}">{{item['title']}}</view>
+            <view bindtap="NavigateTap" class="f13 hui search-list-left" data-id="{{item['sid']}}" wx:for="{{displaySearchInfo}}" wx:key="{{index}}">{{item['name']}}</view>
         </view>
         <block wx:else>
             <view class="no-search flex a-item" wx:if="{{!haveSearchResult}}">
@@ -29,20 +29,19 @@
             </view>
             <block wx:else>
                 <view class="search-list flex a-item" wx:if="{{searchOptionId==1}}">
-                    <view bindtap="NavigateTap" class="f13 hui search-list-left" data-id="{{item['id']}}" wx:for="{{displaySearchInfo}}" wx:key="{{index}}">{{item['title']}}</view>
+                    <view bindtap="NavigateTap" class="f13 hui search-list-left" data-id="{{item['id']}}" wx:for="{{displaySearchInfo}}" wx:key="{{index}}">{{item['name']}}</view>
                 </view>
                 <view class="search-after" wx:else>
-                    <view bindtap="linkToTap" class="search-mer-list flex a-item" data-url="/pages/business/businessIndex/businessIndex?bid={{item['id']}}" wx:for="{{displaySearchInfo}}" wx:key="{{index}}">
-                        <image class="mer-img" mode="aspectFill" src="{{item['headimg']}}"></image>
+                    <view bindtap="linkToTap" class="search-mer-list flex a-item" data-url="/pages/service/serviceDetail/serviceDetail?docId={{item['sid']}}" wx:for="{{displaySearchInfo}}" wx:key="{{index}}">
+                        <image class="mer-img" mode="aspectFill" src="{{item['img']}}"></image>
                         <view class="mer-address">
-                            <view class="mer-info f14 black fw">{{item['title']}}</view>
-                            <view class="mer-info f12 hui">{{item['description']?item['description']:'附近家政商家'}}</view>
+                            <view class="mer-info f14 black fw">{{item['name']}}</view>
+                            <view class="mer-info f12 hui">{{item['desc']?item['desc']:'暂无描述'}}</view>
                             <view class="flex j-between a-item">
-                                <view class="f11 hui">好评率:
-                  <text class="sky-blue f13">{{item['rate']}}%</text>
-                                    <text class="mer-juli"></text>已服务:
-                  <text class="sky-blue f13">{{item['order_count']}}</text>单</view>
-                                <view class="f11 hui">距离{{item['distance']}}KM </view>
+                                <view class="f11 hui">价格:
+                  <text class="sky-blue f13">￥{{item['oneprice']}}</text>
+                                  </view>
+                                <!-- <view class="f11 hui">距离{{item['distance']}}KM </view> -->
                             </view>
                         </view>
                     </view>

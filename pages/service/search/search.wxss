@@ -19,7 +19,7 @@ page {
 }
 
 .head-left {
-    width: 464rpx;
+    width: 600rpx;/*输入框大小*/
     height: 60rpx;
     background: #e7e7e7;
     border-radius: 30rpx;

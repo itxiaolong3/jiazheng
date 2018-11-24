@@ -12,6 +12,7 @@
             <text class="iconfont icon-search f16 hui"></text>
             <input disabled bindtap="linkToTap" class="f14 hui search-input ml6" data-url="/pages/service/search/search" placeholder="搜索服务/店铺" type="text"></input>
         </view> -->
+        
     </view>
     <view class="banner">
         <swiper autoplay="{{true}}" circular="{{true}}" class="swiper" duration="{{800}}" interval="{{4000}}">

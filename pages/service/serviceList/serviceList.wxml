@@ -1,5 +1,11 @@
+<view class='finds'>
+  <view class="search flex a-item">
+              <text class="iconfont icon-search f16 hui"></text>
+              <input disabled bindtap="linkToTap" class="f14 hui search-input ml6" data-url="/pages/service/search/search" placeholder="搜索服务" type="text"></input>
+  </view>
+</view>
+
 <view class="flex flexC pageView">
-    
     <view class="server-list flex j-between sub">
         <scroll-view class="scroll-left" enableBackToTop="{{true}}" scrollY="{{true}}">
             <view bindtap="selectNavigation" class="f13 {{item['color']}} fw server-label {{item['id']==selectedId?'active':''}} tc" data-id="{{item['id']}}" id="{{index}}" wx:for="{{navigationList}}" wx:key="index">
